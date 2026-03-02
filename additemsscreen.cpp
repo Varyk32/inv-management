@@ -1,7 +1,6 @@
 #include "additemsscreen.h"
 #include "ui_additemsscreen.h"
-#include "ui_mainwindow.h"
-
+//#include "mainwindow.cpp"
 
 #include <QTableWidget>                                         //Ensures table widget can be modified from this screen
 #include <mainwindow.h>
@@ -14,6 +13,9 @@ QString manufacturer;
 QString minStock;
 QString currStock;
 QString binNum;
+
+//QSqlDatabase DB_connection = QSqlDatabase::addDatabase("QSQLITE");                          //connect to the database so you can add items
+//DB_connection.setDatabaseName(QCoreApplication::applicationDirPath()+"/Inventory.db");
 
 int totalPartsCount = 2;                                             //declared in case its necessary to use a defined integer for the row count for whatever reason in the future
 
@@ -37,29 +39,34 @@ void AddItemsScreen::on_btnCancel_clicked()
 
 void AddItemsScreen::on_btnAddItem_clicked()
 {
-    AINumber= ui->leAINumber->displayText();                        //setting all the strings declared earlier to be the values of the text entered in the line edits
-    //qDebug()<<"Text:"<<AINumber;                                  //debug to check if the string value got assigned correctly
-    partNumber = ui->lePartNumber->displayText();
-    itemDescription = ui->teItemDesc->displayText();
-    isleNumber = ui->leIsle->displayText();
-    manufacturer = ui->leMan->displayText();
-    minStock = ui->leMinStock->displayText();
-    currStock = ui->leCurrStock->displayText();
-    binNum = ui->leBin->displayText();
+    //connect to the sql database
+    QSqlDatabase DB_connectionModData = QSqlDatabase::addDatabase("QSQLITE", "modifyData");                //creates a connection to the database to modifydata through
+    DB_connectionModData.setDatabaseName(QCoreApplication::applicationDirPath()+"/Inventory.db");          //file path of the database file
 
-    QTableWidget* stockTable = Ui::MainWindow().twInventoryList;     //Fetches the inventory list widget from the main window so its values can be modified
-    // stockTable->insertRow(stockTable->rowCount());                   //adds a new row for the items details to be added to
-    //totalPartsCount++;
-    stockTable->setRowCount(totalPartsCount);
-    stockTable->setItem(stockTable->rowCount(), 1, new QTableWidgetItem("AINumber"));
-    stockTable->setItem(stockTable->rowCount(), 2, new QTableWidgetItem("partNumber"));
-    stockTable->setItem(stockTable->rowCount(), 3, new QTableWidgetItem("itemDescription"));
-    stockTable->setItem(stockTable->rowCount(), 4, new QTableWidgetItem("isleNumber"));
-    stockTable->setItem(stockTable->rowCount(), 5, new QTableWidgetItem("manufacturer"));
-    stockTable->setItem(stockTable->rowCount(), 6, new QTableWidgetItem("minStock"));
-    stockTable->setItem(stockTable->rowCount(), 7, new QTableWidgetItem("currStock"));
-    stockTable->setItem(stockTable->rowCount(), 8, new QTableWidgetItem("binNum"));
+    if (DB_connectionModData.open())
+    {
+        qDebug() << "Database Is Connected";
+    }
+    else
+    {
+        qDebug() << "Database Not Connected";
+        qDebug() << "Error:" << DB_connectionModData.lastError();
+    }
 
+    QSqlDatabase::database().transaction();
+    QSqlQuery QueryInsertData(DB_connectionModData);               //Queries the database to let it know data will be coming in
+    QueryInsertData.prepare("INSERT INTO InventoryData(AINumber, IsleNumber, BinNumber, PartNumber, PartDesc, Manufacturer, NumberInStock, MinimumAllowedStock) VALUES(:AINumber, :IsleNumber, :BinNumber, :PartNumber, :PartDesc, :Manufacturer, :NumberInStock, :MinimumAllowedStock)");
+    QueryInsertData.bindValue(":AINumber", ui->leAINumber->text());         //inserts the values of the textedit boxes into the database
+    QueryInsertData.bindValue(":IsleNumber", ui->leIsle->text());
+    QueryInsertData.bindValue(":BinNumber", ui->leBin->text());
+    QueryInsertData.bindValue(":PartNumber", ui->lePartNumber->text());
+    QueryInsertData.bindValue(":PartDesc", ui->teItemDesc->text());
+    QueryInsertData.bindValue(":Manufacturer", ui->leMan->text());
+    QueryInsertData.bindValue(":NumberInStock", ui->leCurrStock->text());
+    QueryInsertData.bindValue(":MinimumAllowedStock", ui->leMinStock->text());
+    QueryInsertData.exec();
+    QSqlDatabase::database().commit();
+    DB_connectionModData.close();
     this ->close();
 }
 

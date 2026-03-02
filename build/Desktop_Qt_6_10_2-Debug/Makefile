@@ -14,10 +14,10 @@ EQ            = =
 
 CC            = gcc
 CXX           = g++
-DEFINES       = -DQT_QML_DEBUG -DQT_WIDGETS_LIB -DQT_GUI_LIB -DQT_CORE_LIB
+DEFINES       = -DQT_QML_DEBUG -DQT_WIDGETS_LIB -DQT_GUI_LIB -DQT_SQL_LIB -DQT_CORE_LIB
 CFLAGS        = -pipe -g -Wall -Wextra -fPIC -D_REENTRANT $(DEFINES)
 CXXFLAGS      = -pipe -g -std=gnu++1z -Wall -Wextra -fPIC -D_REENTRANT $(DEFINES)
-INCPATH       = -I../../../StoreManagementProgram1 -I. -I/home/varyk/Qt/6.10.2/gcc_64/include -I/home/varyk/Qt/6.10.2/gcc_64/include/QtWidgets -I/home/varyk/Qt/6.10.2/gcc_64/include/QtGui -I/home/varyk/Qt/6.10.2/gcc_64/include/QtCore -I. -I. -I/home/varyk/Qt/6.10.2/gcc_64/mkspecs/linux-g++
+INCPATH       = -I../../../StoreManagementProgram1 -I. -I/home/varyk/Qt/6.10.2/gcc_64/include -I/home/varyk/Qt/6.10.2/gcc_64/include/QtWidgets -I/home/varyk/Qt/6.10.2/gcc_64/include/QtGui -I/home/varyk/Qt/6.10.2/gcc_64/include/QtSql -I/home/varyk/Qt/6.10.2/gcc_64/include/QtCore -I. -I. -I/home/varyk/Qt/6.10.2/gcc_64/mkspecs/linux-g++
 QMAKE         = /home/varyk/Qt/6.10.2/gcc_64/bin/qmake
 DEL_FILE      = rm -f
 CHK_DIR_EXISTS= test -d
@@ -40,7 +40,7 @@ DISTNAME      = StoreManagementProgram11.0.0
 DISTDIR = /home/varyk/Documents/Programming\ Projects/StoreManagementProgram/StoreManagementProgram1/build/Desktop_Qt_6_10_2-Debug/.tmp/StoreManagementProgram11.0.0
 LINK          = g++
 LFLAGS        = -Wl,-rpath,/home/varyk/Qt/6.10.2/gcc_64/lib -Wl,-rpath-link,/home/varyk/Qt/6.10.2/gcc_64/lib
-LIBS          = $(SUBLIBS) /home/varyk/Qt/6.10.2/gcc_64/lib/libQt6Widgets.so /home/varyk/Qt/6.10.2/gcc_64/lib/libQt6Gui.so /home/varyk/Qt/6.10.2/gcc_64/lib/libQt6Core.so -lpthread -lGL   
+LIBS          = $(SUBLIBS) /home/varyk/Qt/6.10.2/gcc_64/lib/libQt6Widgets.so /home/varyk/Qt/6.10.2/gcc_64/lib/libQt6Gui.so /home/varyk/Qt/6.10.2/gcc_64/lib/libQt6Sql.so /home/varyk/Qt/6.10.2/gcc_64/lib/libQt6Core.so -lpthread -lGL   
 AR            = ar cqs
 RANLIB        = 
 SED           = sed
@@ -567,6 +567,7 @@ Makefile: ../../StoreManagementProgram1.pro /home/varyk/Qt/6.10.2/gcc_64/mkspecs
 		../../StoreManagementProgram1.pro \
 		/home/varyk/Qt/6.10.2/gcc_64/lib/libQt6Widgets.prl \
 		/home/varyk/Qt/6.10.2/gcc_64/lib/libQt6Gui.prl \
+		/home/varyk/Qt/6.10.2/gcc_64/lib/libQt6Sql.prl \
 		/home/varyk/Qt/6.10.2/gcc_64/lib/libQt6Core.prl
 	$(QMAKE) -o Makefile ../../StoreManagementProgram1.pro -spec linux-g++ CONFIG+=debug CONFIG+=qml_debug
 /home/varyk/Qt/6.10.2/gcc_64/mkspecs/features/spec_pre.prf:
@@ -807,6 +808,7 @@ Makefile: ../../StoreManagementProgram1.pro /home/varyk/Qt/6.10.2/gcc_64/mkspecs
 ../../StoreManagementProgram1.pro:
 /home/varyk/Qt/6.10.2/gcc_64/lib/libQt6Widgets.prl:
 /home/varyk/Qt/6.10.2/gcc_64/lib/libQt6Gui.prl:
+/home/varyk/Qt/6.10.2/gcc_64/lib/libQt6Sql.prl:
 /home/varyk/Qt/6.10.2/gcc_64/lib/libQt6Core.prl:
 qmake: FORCE
 	@$(QMAKE) -o Makefile ../../StoreManagementProgram1.pro -spec linux-g++ CONFIG+=debug CONFIG+=qml_debug
@@ -1061,7 +1063,7 @@ moc_additemsscreen.cpp: ../../additemsscreen.h \
 		/home/varyk/Qt/6.10.2/gcc_64/include/QtGui/qguiapplication_platform.h \
 		moc_predefs.h \
 		/home/varyk/Qt/6.10.2/gcc_64/libexec/moc
-	/home/varyk/Qt/6.10.2/gcc_64/libexec/moc $(DEFINES) --include '/home/varyk/Documents/Programming Projects/StoreManagementProgram/StoreManagementProgram1/build/Desktop_Qt_6_10_2-Debug/moc_predefs.h' -I/home/varyk/Qt/6.10.2/gcc_64/mkspecs/linux-g++ -I'/home/varyk/Documents/Programming Projects/StoreManagementProgram/StoreManagementProgram1' -I/home/varyk/Qt/6.10.2/gcc_64/include -I/home/varyk/Qt/6.10.2/gcc_64/include/QtWidgets -I/home/varyk/Qt/6.10.2/gcc_64/include/QtGui -I/home/varyk/Qt/6.10.2/gcc_64/include/QtCore -I. -I/usr/include/c++/15.2.1 -I/usr/include/c++/15.2.1/x86_64-pc-linux-gnu -I/usr/include/c++/15.2.1/backward -I/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include -I/usr/local/include -I/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include-fixed -I/usr/include ../../additemsscreen.h -o moc_additemsscreen.cpp
+	/home/varyk/Qt/6.10.2/gcc_64/libexec/moc $(DEFINES) --include '/home/varyk/Documents/Programming Projects/StoreManagementProgram/StoreManagementProgram1/build/Desktop_Qt_6_10_2-Debug/moc_predefs.h' -I/home/varyk/Qt/6.10.2/gcc_64/mkspecs/linux-g++ -I'/home/varyk/Documents/Programming Projects/StoreManagementProgram/StoreManagementProgram1' -I/home/varyk/Qt/6.10.2/gcc_64/include -I/home/varyk/Qt/6.10.2/gcc_64/include/QtWidgets -I/home/varyk/Qt/6.10.2/gcc_64/include/QtGui -I/home/varyk/Qt/6.10.2/gcc_64/include/QtSql -I/home/varyk/Qt/6.10.2/gcc_64/include/QtCore -I. -I/usr/include/c++/15.2.1 -I/usr/include/c++/15.2.1/x86_64-pc-linux-gnu -I/usr/include/c++/15.2.1/backward -I/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include -I/usr/local/include -I/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include-fixed -I/usr/include ../../additemsscreen.h -o moc_additemsscreen.cpp
 
 moc_itembookoutdialogue.cpp: ../../itembookoutdialogue.h \
 		/home/varyk/Qt/6.10.2/gcc_64/include/QtWidgets/QDialog \
@@ -1264,7 +1266,7 @@ moc_itembookoutdialogue.cpp: ../../itembookoutdialogue.h \
 		/home/varyk/Qt/6.10.2/gcc_64/include/QtGui/qguiapplication_platform.h \
 		moc_predefs.h \
 		/home/varyk/Qt/6.10.2/gcc_64/libexec/moc
-	/home/varyk/Qt/6.10.2/gcc_64/libexec/moc $(DEFINES) --include '/home/varyk/Documents/Programming Projects/StoreManagementProgram/StoreManagementProgram1/build/Desktop_Qt_6_10_2-Debug/moc_predefs.h' -I/home/varyk/Qt/6.10.2/gcc_64/mkspecs/linux-g++ -I'/home/varyk/Documents/Programming Projects/StoreManagementProgram/StoreManagementProgram1' -I/home/varyk/Qt/6.10.2/gcc_64/include -I/home/varyk/Qt/6.10.2/gcc_64/include/QtWidgets -I/home/varyk/Qt/6.10.2/gcc_64/include/QtGui -I/home/varyk/Qt/6.10.2/gcc_64/include/QtCore -I. -I/usr/include/c++/15.2.1 -I/usr/include/c++/15.2.1/x86_64-pc-linux-gnu -I/usr/include/c++/15.2.1/backward -I/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include -I/usr/local/include -I/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include-fixed -I/usr/include ../../itembookoutdialogue.h -o moc_itembookoutdialogue.cpp
+	/home/varyk/Qt/6.10.2/gcc_64/libexec/moc $(DEFINES) --include '/home/varyk/Documents/Programming Projects/StoreManagementProgram/StoreManagementProgram1/build/Desktop_Qt_6_10_2-Debug/moc_predefs.h' -I/home/varyk/Qt/6.10.2/gcc_64/mkspecs/linux-g++ -I'/home/varyk/Documents/Programming Projects/StoreManagementProgram/StoreManagementProgram1' -I/home/varyk/Qt/6.10.2/gcc_64/include -I/home/varyk/Qt/6.10.2/gcc_64/include/QtWidgets -I/home/varyk/Qt/6.10.2/gcc_64/include/QtGui -I/home/varyk/Qt/6.10.2/gcc_64/include/QtSql -I/home/varyk/Qt/6.10.2/gcc_64/include/QtCore -I. -I/usr/include/c++/15.2.1 -I/usr/include/c++/15.2.1/x86_64-pc-linux-gnu -I/usr/include/c++/15.2.1/backward -I/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include -I/usr/local/include -I/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include-fixed -I/usr/include ../../itembookoutdialogue.h -o moc_itembookoutdialogue.cpp
 
 moc_logindialogue.cpp: ../../logindialogue.h \
 		/home/varyk/Qt/6.10.2/gcc_64/include/QtWidgets/QDialog \
@@ -1475,11 +1477,11 @@ moc_logindialogue.cpp: ../../logindialogue.h \
 		/home/varyk/Qt/6.10.2/gcc_64/include/QtGui/qtextoption.h \
 		moc_predefs.h \
 		/home/varyk/Qt/6.10.2/gcc_64/libexec/moc
-	/home/varyk/Qt/6.10.2/gcc_64/libexec/moc $(DEFINES) --include '/home/varyk/Documents/Programming Projects/StoreManagementProgram/StoreManagementProgram1/build/Desktop_Qt_6_10_2-Debug/moc_predefs.h' -I/home/varyk/Qt/6.10.2/gcc_64/mkspecs/linux-g++ -I'/home/varyk/Documents/Programming Projects/StoreManagementProgram/StoreManagementProgram1' -I/home/varyk/Qt/6.10.2/gcc_64/include -I/home/varyk/Qt/6.10.2/gcc_64/include/QtWidgets -I/home/varyk/Qt/6.10.2/gcc_64/include/QtGui -I/home/varyk/Qt/6.10.2/gcc_64/include/QtCore -I. -I/usr/include/c++/15.2.1 -I/usr/include/c++/15.2.1/x86_64-pc-linux-gnu -I/usr/include/c++/15.2.1/backward -I/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include -I/usr/local/include -I/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include-fixed -I/usr/include ../../logindialogue.h -o moc_logindialogue.cpp
+	/home/varyk/Qt/6.10.2/gcc_64/libexec/moc $(DEFINES) --include '/home/varyk/Documents/Programming Projects/StoreManagementProgram/StoreManagementProgram1/build/Desktop_Qt_6_10_2-Debug/moc_predefs.h' -I/home/varyk/Qt/6.10.2/gcc_64/mkspecs/linux-g++ -I'/home/varyk/Documents/Programming Projects/StoreManagementProgram/StoreManagementProgram1' -I/home/varyk/Qt/6.10.2/gcc_64/include -I/home/varyk/Qt/6.10.2/gcc_64/include/QtWidgets -I/home/varyk/Qt/6.10.2/gcc_64/include/QtGui -I/home/varyk/Qt/6.10.2/gcc_64/include/QtSql -I/home/varyk/Qt/6.10.2/gcc_64/include/QtCore -I. -I/usr/include/c++/15.2.1 -I/usr/include/c++/15.2.1/x86_64-pc-linux-gnu -I/usr/include/c++/15.2.1/backward -I/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include -I/usr/local/include -I/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include-fixed -I/usr/include ../../logindialogue.h -o moc_logindialogue.cpp
 
 moc_mainwindow.cpp: ../../mainwindow.h \
-		/home/varyk/Qt/6.10.2/gcc_64/include/QtWidgets/QMainWindow \
-		/home/varyk/Qt/6.10.2/gcc_64/include/QtWidgets/qmainwindow.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtWidgets/qtablewidget.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtWidgets/qtableview.h \
 		/home/varyk/Qt/6.10.2/gcc_64/include/QtWidgets/qtwidgetsglobal.h \
 		/home/varyk/Qt/6.10.2/gcc_64/include/QtGui/qtguiglobal.h \
 		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/qglobal.h \
@@ -1533,6 +1535,9 @@ moc_mainwindow.cpp: ../../mainwindow.h \
 		/home/varyk/Qt/6.10.2/gcc_64/include/QtGui/qtguiexports.h \
 		/home/varyk/Qt/6.10.2/gcc_64/include/QtWidgets/qtwidgets-config.h \
 		/home/varyk/Qt/6.10.2/gcc_64/include/QtWidgets/qtwidgetsexports.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtWidgets/qabstractitemview.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtWidgets/qabstractscrollarea.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtWidgets/qframe.h \
 		/home/varyk/Qt/6.10.2/gcc_64/include/QtWidgets/qwidget.h \
 		/home/varyk/Qt/6.10.2/gcc_64/include/QtGui/qwindowdefs.h \
 		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/qobjectdefs.h \
@@ -1676,10 +1681,33 @@ moc_mainwindow.cpp: ../../mainwindow.h \
 		/home/varyk/Qt/6.10.2/gcc_64/include/QtGui/qinputmethod.h \
 		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/qlocale.h \
 		/home/varyk/Qt/6.10.2/gcc_64/include/QtGui/qguiapplication_platform.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/qabstractitemmodel.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/qitemselectionmodel.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtWidgets/qabstractitemdelegate.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtWidgets/qstyleoption.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtWidgets/qabstractspinbox.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtGui/qvalidator.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/qregularexpression.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtWidgets/qslider.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtWidgets/qabstractslider.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtWidgets/qstyle.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtWidgets/qtabbar.h \
 		/home/varyk/Qt/6.10.2/gcc_64/include/QtWidgets/qtabwidget.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtWidgets/qrubberband.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtWidgets/QMainWindow \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtWidgets/qmainwindow.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtSql/QSql \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtSql/qtsqlglobal.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtSql/qtsql-config.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtSql/qtsqlexports.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtSql/QSqlDatabase \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtSql/qsqldatabase.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/qmetaobject.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtSql/QSqlError \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtSql/qsqlerror.h \
 		moc_predefs.h \
 		/home/varyk/Qt/6.10.2/gcc_64/libexec/moc
-	/home/varyk/Qt/6.10.2/gcc_64/libexec/moc $(DEFINES) --include '/home/varyk/Documents/Programming Projects/StoreManagementProgram/StoreManagementProgram1/build/Desktop_Qt_6_10_2-Debug/moc_predefs.h' -I/home/varyk/Qt/6.10.2/gcc_64/mkspecs/linux-g++ -I'/home/varyk/Documents/Programming Projects/StoreManagementProgram/StoreManagementProgram1' -I/home/varyk/Qt/6.10.2/gcc_64/include -I/home/varyk/Qt/6.10.2/gcc_64/include/QtWidgets -I/home/varyk/Qt/6.10.2/gcc_64/include/QtGui -I/home/varyk/Qt/6.10.2/gcc_64/include/QtCore -I. -I/usr/include/c++/15.2.1 -I/usr/include/c++/15.2.1/x86_64-pc-linux-gnu -I/usr/include/c++/15.2.1/backward -I/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include -I/usr/local/include -I/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include-fixed -I/usr/include ../../mainwindow.h -o moc_mainwindow.cpp
+	/home/varyk/Qt/6.10.2/gcc_64/libexec/moc $(DEFINES) --include '/home/varyk/Documents/Programming Projects/StoreManagementProgram/StoreManagementProgram1/build/Desktop_Qt_6_10_2-Debug/moc_predefs.h' -I/home/varyk/Qt/6.10.2/gcc_64/mkspecs/linux-g++ -I'/home/varyk/Documents/Programming Projects/StoreManagementProgram/StoreManagementProgram1' -I/home/varyk/Qt/6.10.2/gcc_64/include -I/home/varyk/Qt/6.10.2/gcc_64/include/QtWidgets -I/home/varyk/Qt/6.10.2/gcc_64/include/QtGui -I/home/varyk/Qt/6.10.2/gcc_64/include/QtSql -I/home/varyk/Qt/6.10.2/gcc_64/include/QtCore -I. -I/usr/include/c++/15.2.1 -I/usr/include/c++/15.2.1/x86_64-pc-linux-gnu -I/usr/include/c++/15.2.1/backward -I/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include -I/usr/local/include -I/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include-fixed -I/usr/include ../../mainwindow.h -o moc_mainwindow.cpp
 
 moc_settingsscreen.cpp: ../../settingsscreen.h \
 		/home/varyk/Qt/6.10.2/gcc_64/include/QtWidgets/QDialog \
@@ -1882,7 +1910,7 @@ moc_settingsscreen.cpp: ../../settingsscreen.h \
 		/home/varyk/Qt/6.10.2/gcc_64/include/QtGui/qguiapplication_platform.h \
 		moc_predefs.h \
 		/home/varyk/Qt/6.10.2/gcc_64/libexec/moc
-	/home/varyk/Qt/6.10.2/gcc_64/libexec/moc $(DEFINES) --include '/home/varyk/Documents/Programming Projects/StoreManagementProgram/StoreManagementProgram1/build/Desktop_Qt_6_10_2-Debug/moc_predefs.h' -I/home/varyk/Qt/6.10.2/gcc_64/mkspecs/linux-g++ -I'/home/varyk/Documents/Programming Projects/StoreManagementProgram/StoreManagementProgram1' -I/home/varyk/Qt/6.10.2/gcc_64/include -I/home/varyk/Qt/6.10.2/gcc_64/include/QtWidgets -I/home/varyk/Qt/6.10.2/gcc_64/include/QtGui -I/home/varyk/Qt/6.10.2/gcc_64/include/QtCore -I. -I/usr/include/c++/15.2.1 -I/usr/include/c++/15.2.1/x86_64-pc-linux-gnu -I/usr/include/c++/15.2.1/backward -I/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include -I/usr/local/include -I/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include-fixed -I/usr/include ../../settingsscreen.h -o moc_settingsscreen.cpp
+	/home/varyk/Qt/6.10.2/gcc_64/libexec/moc $(DEFINES) --include '/home/varyk/Documents/Programming Projects/StoreManagementProgram/StoreManagementProgram1/build/Desktop_Qt_6_10_2-Debug/moc_predefs.h' -I/home/varyk/Qt/6.10.2/gcc_64/mkspecs/linux-g++ -I'/home/varyk/Documents/Programming Projects/StoreManagementProgram/StoreManagementProgram1' -I/home/varyk/Qt/6.10.2/gcc_64/include -I/home/varyk/Qt/6.10.2/gcc_64/include/QtWidgets -I/home/varyk/Qt/6.10.2/gcc_64/include/QtGui -I/home/varyk/Qt/6.10.2/gcc_64/include/QtSql -I/home/varyk/Qt/6.10.2/gcc_64/include/QtCore -I. -I/usr/include/c++/15.2.1 -I/usr/include/c++/15.2.1/x86_64-pc-linux-gnu -I/usr/include/c++/15.2.1/backward -I/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include -I/usr/local/include -I/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include-fixed -I/usr/include ../../settingsscreen.h -o moc_settingsscreen.cpp
 
 compiler_moc_objc_header_make_all:
 compiler_moc_objc_header_clean:
@@ -2123,7 +2151,51 @@ additemsscreen.o: ../../additemsscreen.cpp ../../additemsscreen.h \
 		ui_additemsscreen.h \
 		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/QVariant \
 		/home/varyk/Qt/6.10.2/gcc_64/include/QtWidgets/QApplication \
-		/home/varyk/Qt/6.10.2/gcc_64/include/QtWidgets/qapplication.h
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtWidgets/qapplication.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtWidgets/QLabel \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtWidgets/qlabel.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtWidgets/qframe.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtGui/qpicture.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtGui/qtextdocument.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtWidgets/QLineEdit \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtWidgets/qlineedit.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtGui/qtextcursor.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtGui/qtextformat.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtGui/qpen.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtGui/qtextoption.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtWidgets/QPushButton \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtWidgets/qpushbutton.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtWidgets/qabstractbutton.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtWidgets/QTableWidget \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtWidgets/qtablewidget.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtWidgets/qtableview.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtWidgets/qabstractitemview.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtWidgets/qabstractscrollarea.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/qabstractitemmodel.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/qitemselectionmodel.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtWidgets/qabstractitemdelegate.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtWidgets/qstyleoption.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtWidgets/qabstractspinbox.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtGui/qvalidator.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/qregularexpression.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtWidgets/qslider.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtWidgets/qabstractslider.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtWidgets/qstyle.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtWidgets/qtabbar.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtWidgets/qtabwidget.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtWidgets/qrubberband.h \
+		../../mainwindow.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtWidgets/QMainWindow \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtWidgets/qmainwindow.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtSql/QSql \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtSql/qtsqlglobal.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtSql/qtsql-config.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtSql/qtsqlexports.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtSql/QSqlDatabase \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtSql/qsqldatabase.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/qmetaobject.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtSql/QSqlError \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtSql/qsqlerror.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o additemsscreen.o ../../additemsscreen.cpp
 
 itembookoutdialogue.o: ../../itembookoutdialogue.cpp ../../itembookoutdialogue.h \
@@ -2325,7 +2397,24 @@ itembookoutdialogue.o: ../../itembookoutdialogue.cpp ../../itembookoutdialogue.h
 		/home/varyk/Qt/6.10.2/gcc_64/include/QtGui/qinputmethod.h \
 		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/qlocale.h \
 		/home/varyk/Qt/6.10.2/gcc_64/include/QtGui/qguiapplication_platform.h \
-		ui_itembookoutdialogue.h
+		ui_itembookoutdialogue.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/QVariant \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtWidgets/QApplication \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtWidgets/qapplication.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtWidgets/QLabel \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtWidgets/qlabel.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtWidgets/qframe.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtGui/qpicture.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtGui/qtextdocument.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtWidgets/QLineEdit \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtWidgets/qlineedit.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtGui/qtextcursor.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtGui/qtextformat.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtGui/qpen.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtGui/qtextoption.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtWidgets/QPushButton \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtWidgets/qpushbutton.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtWidgets/qabstractbutton.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o itembookoutdialogue.o ../../itembookoutdialogue.cpp
 
 logindialogue.o: ../../logindialogue.cpp ../../logindialogue.h \
@@ -2548,8 +2637,8 @@ logindialogue.o: ../../logindialogue.cpp ../../logindialogue.h \
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o logindialogue.o ../../logindialogue.cpp
 
 main.o: ../../main.cpp ../../mainwindow.h \
-		/home/varyk/Qt/6.10.2/gcc_64/include/QtWidgets/QMainWindow \
-		/home/varyk/Qt/6.10.2/gcc_64/include/QtWidgets/qmainwindow.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtWidgets/qtablewidget.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtWidgets/qtableview.h \
 		/home/varyk/Qt/6.10.2/gcc_64/include/QtWidgets/qtwidgetsglobal.h \
 		/home/varyk/Qt/6.10.2/gcc_64/include/QtGui/qtguiglobal.h \
 		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/qglobal.h \
@@ -2603,6 +2692,9 @@ main.o: ../../main.cpp ../../mainwindow.h \
 		/home/varyk/Qt/6.10.2/gcc_64/include/QtGui/qtguiexports.h \
 		/home/varyk/Qt/6.10.2/gcc_64/include/QtWidgets/qtwidgets-config.h \
 		/home/varyk/Qt/6.10.2/gcc_64/include/QtWidgets/qtwidgetsexports.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtWidgets/qabstractitemview.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtWidgets/qabstractscrollarea.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtWidgets/qframe.h \
 		/home/varyk/Qt/6.10.2/gcc_64/include/QtWidgets/qwidget.h \
 		/home/varyk/Qt/6.10.2/gcc_64/include/QtGui/qwindowdefs.h \
 		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/qobjectdefs.h \
@@ -2746,14 +2838,37 @@ main.o: ../../main.cpp ../../mainwindow.h \
 		/home/varyk/Qt/6.10.2/gcc_64/include/QtGui/qinputmethod.h \
 		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/qlocale.h \
 		/home/varyk/Qt/6.10.2/gcc_64/include/QtGui/qguiapplication_platform.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/qabstractitemmodel.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/qitemselectionmodel.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtWidgets/qabstractitemdelegate.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtWidgets/qstyleoption.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtWidgets/qabstractspinbox.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtGui/qvalidator.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/qregularexpression.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtWidgets/qslider.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtWidgets/qabstractslider.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtWidgets/qstyle.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtWidgets/qtabbar.h \
 		/home/varyk/Qt/6.10.2/gcc_64/include/QtWidgets/qtabwidget.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtWidgets/qrubberband.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtWidgets/QMainWindow \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtWidgets/qmainwindow.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtSql/QSql \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtSql/qtsqlglobal.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtSql/qtsql-config.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtSql/qtsqlexports.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtSql/QSqlDatabase \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtSql/qsqldatabase.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/qmetaobject.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtSql/QSqlError \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtSql/qsqlerror.h \
 		/home/varyk/Qt/6.10.2/gcc_64/include/QtWidgets/QApplication \
 		/home/varyk/Qt/6.10.2/gcc_64/include/QtWidgets/qapplication.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o main.o ../../main.cpp
 
 mainwindow.o: ../../mainwindow.cpp ../../mainwindow.h \
-		/home/varyk/Qt/6.10.2/gcc_64/include/QtWidgets/QMainWindow \
-		/home/varyk/Qt/6.10.2/gcc_64/include/QtWidgets/qmainwindow.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtWidgets/qtablewidget.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtWidgets/qtableview.h \
 		/home/varyk/Qt/6.10.2/gcc_64/include/QtWidgets/qtwidgetsglobal.h \
 		/home/varyk/Qt/6.10.2/gcc_64/include/QtGui/qtguiglobal.h \
 		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/qglobal.h \
@@ -2807,6 +2922,9 @@ mainwindow.o: ../../mainwindow.cpp ../../mainwindow.h \
 		/home/varyk/Qt/6.10.2/gcc_64/include/QtGui/qtguiexports.h \
 		/home/varyk/Qt/6.10.2/gcc_64/include/QtWidgets/qtwidgets-config.h \
 		/home/varyk/Qt/6.10.2/gcc_64/include/QtWidgets/qtwidgetsexports.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtWidgets/qabstractitemview.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtWidgets/qabstractscrollarea.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtWidgets/qframe.h \
 		/home/varyk/Qt/6.10.2/gcc_64/include/QtWidgets/qwidget.h \
 		/home/varyk/Qt/6.10.2/gcc_64/include/QtGui/qwindowdefs.h \
 		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/qobjectdefs.h \
@@ -2950,13 +3068,37 @@ mainwindow.o: ../../mainwindow.cpp ../../mainwindow.h \
 		/home/varyk/Qt/6.10.2/gcc_64/include/QtGui/qinputmethod.h \
 		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/qlocale.h \
 		/home/varyk/Qt/6.10.2/gcc_64/include/QtGui/qguiapplication_platform.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/qabstractitemmodel.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/qitemselectionmodel.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtWidgets/qabstractitemdelegate.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtWidgets/qstyleoption.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtWidgets/qabstractspinbox.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtGui/qvalidator.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/qregularexpression.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtWidgets/qslider.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtWidgets/qabstractslider.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtWidgets/qstyle.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtWidgets/qtabbar.h \
 		/home/varyk/Qt/6.10.2/gcc_64/include/QtWidgets/qtabwidget.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtWidgets/qrubberband.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtWidgets/QMainWindow \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtWidgets/qmainwindow.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtSql/QSql \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtSql/qtsqlglobal.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtSql/qtsql-config.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtSql/qtsqlexports.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtSql/QSqlDatabase \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtSql/qsqldatabase.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/qmetaobject.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtSql/QSqlError \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtSql/qsqlerror.h \
 		ui_mainwindow.h \
 		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/QVariant \
 		/home/varyk/Qt/6.10.2/gcc_64/include/QtWidgets/QApplication \
 		/home/varyk/Qt/6.10.2/gcc_64/include/QtWidgets/qapplication.h \
 		/home/varyk/Qt/6.10.2/gcc_64/include/QtWidgets/QFrame \
-		/home/varyk/Qt/6.10.2/gcc_64/include/QtWidgets/qframe.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtWidgets/QHeaderView \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtWidgets/qheaderview.h \
 		/home/varyk/Qt/6.10.2/gcc_64/include/QtWidgets/QLabel \
 		/home/varyk/Qt/6.10.2/gcc_64/include/QtWidgets/qlabel.h \
 		/home/varyk/Qt/6.10.2/gcc_64/include/QtGui/qpicture.h \
@@ -2973,11 +3115,9 @@ mainwindow.o: ../../mainwindow.cpp ../../mainwindow.h \
 		/home/varyk/Qt/6.10.2/gcc_64/include/QtWidgets/QPushButton \
 		/home/varyk/Qt/6.10.2/gcc_64/include/QtWidgets/qpushbutton.h \
 		/home/varyk/Qt/6.10.2/gcc_64/include/QtWidgets/qabstractbutton.h \
-		/home/varyk/Qt/6.10.2/gcc_64/include/QtWidgets/QScrollBar \
-		/home/varyk/Qt/6.10.2/gcc_64/include/QtWidgets/qscrollbar.h \
-		/home/varyk/Qt/6.10.2/gcc_64/include/QtWidgets/qabstractslider.h \
 		/home/varyk/Qt/6.10.2/gcc_64/include/QtWidgets/QStatusBar \
 		/home/varyk/Qt/6.10.2/gcc_64/include/QtWidgets/qstatusbar.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtWidgets/QTableWidget \
 		/home/varyk/Qt/6.10.2/gcc_64/include/QtWidgets/QWidget \
 		../../additemsscreen.h \
 		/home/varyk/Qt/6.10.2/gcc_64/include/QtWidgets/QDialog \

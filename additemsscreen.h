@@ -2,6 +2,7 @@
 #define ADDITEMSSCREEN_H
 
 #include <QDialog>
+#include <QSql>
 
 namespace Ui {
 class AddItemsScreen;
@@ -24,6 +25,7 @@ private slots:
 
 private:
     Ui::AddItemsScreen *ui;
+
 };
 
 #endif // ADDITEMSSCREEN_H

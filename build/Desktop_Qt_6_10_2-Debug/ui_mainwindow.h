@@ -46,7 +46,7 @@ public:
     {
         if (MainWindow->objectName().isEmpty())
             MainWindow->setObjectName("MainWindow");
-        MainWindow->resize(860, 522);
+        MainWindow->resize(1063, 733);
         centralwidget = new QWidget(MainWindow);
         centralwidget->setObjectName("centralwidget");
         lblStoreManager = new QLabel(centralwidget);
@@ -71,7 +71,7 @@ public:
         btnLogin->setGeometry(QRect(680, 0, 131, 61));
         frameInventoryList = new QFrame(centralwidget);
         frameInventoryList->setObjectName("frameInventoryList");
-        frameInventoryList->setGeometry(QRect(30, 150, 811, 321));
+        frameInventoryList->setGeometry(QRect(30, 150, 961, 531));
         frameInventoryList->setFrameShape(QFrame::Shape::StyledPanel);
         frameInventoryList->setFrameShadow(QFrame::Shadow::Raised);
         twInventoryList = new QTableWidget(frameInventoryList);
@@ -93,41 +93,8 @@ public:
         twInventoryList->setHorizontalHeaderItem(6, __qtablewidgetitem6);
         QTableWidgetItem *__qtablewidgetitem7 = new QTableWidgetItem();
         twInventoryList->setHorizontalHeaderItem(7, __qtablewidgetitem7);
-        if (twInventoryList->rowCount() < 1)
-            twInventoryList->setRowCount(1);
-        QFont font2;
-        font2.setBold(true);
-        QTableWidgetItem *__qtablewidgetitem8 = new QTableWidgetItem();
-        __qtablewidgetitem8->setFont(font2);
-        __qtablewidgetitem8->setFlags(Qt::ItemIsSelectable|Qt::ItemIsDragEnabled|Qt::ItemIsDropEnabled|Qt::ItemIsUserCheckable|Qt::ItemIsEnabled);
-        twInventoryList->setItem(0, 0, __qtablewidgetitem8);
-        QTableWidgetItem *__qtablewidgetitem9 = new QTableWidgetItem();
-        __qtablewidgetitem9->setFlags(Qt::ItemIsSelectable|Qt::ItemIsDragEnabled|Qt::ItemIsDropEnabled|Qt::ItemIsUserCheckable|Qt::ItemIsEnabled);
-        twInventoryList->setItem(0, 1, __qtablewidgetitem9);
-        QTableWidgetItem *__qtablewidgetitem10 = new QTableWidgetItem();
-        __qtablewidgetitem10->setFlags(Qt::ItemIsSelectable|Qt::ItemIsDragEnabled|Qt::ItemIsDropEnabled|Qt::ItemIsUserCheckable|Qt::ItemIsEnabled);
-        twInventoryList->setItem(0, 2, __qtablewidgetitem10);
-        QTableWidgetItem *__qtablewidgetitem11 = new QTableWidgetItem();
-        __qtablewidgetitem11->setFlags(Qt::ItemIsSelectable|Qt::ItemIsDragEnabled|Qt::ItemIsDropEnabled|Qt::ItemIsUserCheckable|Qt::ItemIsEnabled);
-        twInventoryList->setItem(0, 3, __qtablewidgetitem11);
-        QTableWidgetItem *__qtablewidgetitem12 = new QTableWidgetItem();
-        __qtablewidgetitem12->setFont(font2);
-        __qtablewidgetitem12->setFlags(Qt::ItemIsSelectable|Qt::ItemIsDragEnabled|Qt::ItemIsDropEnabled|Qt::ItemIsUserCheckable|Qt::ItemIsEnabled);
-        twInventoryList->setItem(0, 4, __qtablewidgetitem12);
-        QTableWidgetItem *__qtablewidgetitem13 = new QTableWidgetItem();
-        __qtablewidgetitem13->setFont(font2);
-        __qtablewidgetitem13->setFlags(Qt::ItemIsSelectable|Qt::ItemIsDragEnabled|Qt::ItemIsDropEnabled|Qt::ItemIsUserCheckable|Qt::ItemIsEnabled);
-        twInventoryList->setItem(0, 5, __qtablewidgetitem13);
-        QTableWidgetItem *__qtablewidgetitem14 = new QTableWidgetItem();
-        __qtablewidgetitem14->setFont(font2);
-        __qtablewidgetitem14->setFlags(Qt::ItemIsSelectable|Qt::ItemIsDragEnabled|Qt::ItemIsDropEnabled|Qt::ItemIsUserCheckable|Qt::ItemIsEnabled);
-        twInventoryList->setItem(0, 6, __qtablewidgetitem14);
-        QTableWidgetItem *__qtablewidgetitem15 = new QTableWidgetItem();
-        __qtablewidgetitem15->setFont(font2);
-        __qtablewidgetitem15->setFlags(Qt::ItemIsSelectable|Qt::ItemIsDragEnabled|Qt::ItemIsDropEnabled|Qt::ItemIsUserCheckable|Qt::ItemIsEnabled);
-        twInventoryList->setItem(0, 7, __qtablewidgetitem15);
         twInventoryList->setObjectName("twInventoryList");
-        twInventoryList->setGeometry(QRect(0, 10, 801, 311));
+        twInventoryList->setGeometry(QRect(0, 10, 951, 531));
         leSearchBar = new QLineEdit(centralwidget);
         leSearchBar->setObjectName("leSearchBar");
         leSearchBar->setGeometry(QRect(30, 60, 581, 41));
@@ -146,7 +113,7 @@ public:
         MainWindow->setCentralWidget(centralwidget);
         menubar = new QMenuBar(MainWindow);
         menubar->setObjectName("menubar");
-        menubar->setGeometry(QRect(0, 0, 860, 20));
+        menubar->setGeometry(QRect(0, 0, 1063, 20));
         MainWindow->setMenuBar(menubar);
         statusbar = new QStatusBar(MainWindow);
         statusbar->setObjectName("statusbar");
@@ -164,26 +131,21 @@ public:
         lblCurrentUser->setText(QCoreApplication::translate("MainWindow", "Current User:", nullptr));
         btnLogin->setText(QCoreApplication::translate("MainWindow", "Log In", nullptr));
         QTableWidgetItem *___qtablewidgetitem = twInventoryList->horizontalHeaderItem(0);
-        ___qtablewidgetitem->setText(QCoreApplication::translate("MainWindow", "AI number", nullptr));
+        ___qtablewidgetitem->setText(QCoreApplication::translate("MainWindow", "AI Number", nullptr));
         QTableWidgetItem *___qtablewidgetitem1 = twInventoryList->horizontalHeaderItem(1);
-        ___qtablewidgetitem1->setText(QCoreApplication::translate("MainWindow", "Manufacturer", nullptr));
+        ___qtablewidgetitem1->setText(QCoreApplication::translate("MainWindow", "Isle", nullptr));
         QTableWidgetItem *___qtablewidgetitem2 = twInventoryList->horizontalHeaderItem(2);
-        ___qtablewidgetitem2->setText(QCoreApplication::translate("MainWindow", "Isle", nullptr));
+        ___qtablewidgetitem2->setText(QCoreApplication::translate("MainWindow", "Bin Number", nullptr));
         QTableWidgetItem *___qtablewidgetitem3 = twInventoryList->horizontalHeaderItem(3);
-        ___qtablewidgetitem3->setText(QCoreApplication::translate("MainWindow", "Bin", nullptr));
+        ___qtablewidgetitem3->setText(QCoreApplication::translate("MainWindow", "Part Number", nullptr));
         QTableWidgetItem *___qtablewidgetitem4 = twInventoryList->horizontalHeaderItem(4);
-        ___qtablewidgetitem4->setText(QCoreApplication::translate("MainWindow", "Part Number", nullptr));
+        ___qtablewidgetitem4->setText(QCoreApplication::translate("MainWindow", "Part Description", nullptr));
         QTableWidgetItem *___qtablewidgetitem5 = twInventoryList->horizontalHeaderItem(5);
-        ___qtablewidgetitem5->setText(QCoreApplication::translate("MainWindow", "Part Description", nullptr));
+        ___qtablewidgetitem5->setText(QCoreApplication::translate("MainWindow", "Manufacturer", nullptr));
         QTableWidgetItem *___qtablewidgetitem6 = twInventoryList->horizontalHeaderItem(6);
         ___qtablewidgetitem6->setText(QCoreApplication::translate("MainWindow", "NIS", nullptr));
         QTableWidgetItem *___qtablewidgetitem7 = twInventoryList->horizontalHeaderItem(7);
-        ___qtablewidgetitem7->setText(QCoreApplication::translate("MainWindow", "MPS", nullptr));
-
-        const bool __sortingEnabled = twInventoryList->isSortingEnabled();
-        twInventoryList->setSortingEnabled(false);
-        twInventoryList->setSortingEnabled(__sortingEnabled);
-
+        ___qtablewidgetitem7->setText(QCoreApplication::translate("MainWindow", "MPA", nullptr));
         pushButton->setText(QCoreApplication::translate("MainWindow", "Search", nullptr));
         btnSettings->setText(QCoreApplication::translate("MainWindow", "Settings", nullptr));
         btnLogout->setText(QCoreApplication::translate("MainWindow", "Log Out", nullptr));

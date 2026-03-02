@@ -3,6 +3,10 @@
 
 #include "qtablewidget.h"
 #include <QMainWindow>
+#include <QtSql>
+//#include <QtSql/QSqlDatabase>
+//#include <QtSql/QSqlError>
+//#include <qdebug.h>
 
 extern QTableWidget twInventoryList;
 
@@ -19,6 +23,7 @@ class MainWindow : public QMainWindow
 public:
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
+    QSqlDatabase DB_connection;
 
 private slots:
     void on_btnLogin_clicked();
@@ -31,7 +36,10 @@ private slots:
 
     void on_twInventoryList_itemPressed(QTableWidgetItem *item);
 
+    void on_pushButton_clicked();
+
 private:
     Ui::MainWindow *ui;
+
 };
 #endif // MAINWINDOW_H

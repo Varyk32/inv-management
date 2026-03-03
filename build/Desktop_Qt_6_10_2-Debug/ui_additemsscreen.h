@@ -40,6 +40,8 @@ public:
     QLineEdit *leIsle;
     QLineEdit *leMan;
     QLineEdit *leBin;
+    QLabel *lblShelf;
+    QLineEdit *leShelf;
 
     void setupUi(QDialog *AddItemsScreen)
     {
@@ -93,16 +95,22 @@ public:
         lblBin->setGeometry(QRect(10, 220, 151, 16));
         lblMan = new QLabel(AddItemsScreen);
         lblMan->setObjectName("lblMan");
-        lblMan->setGeometry(QRect(10, 250, 151, 16));
+        lblMan->setGeometry(QRect(10, 280, 151, 16));
         leIsle = new QLineEdit(AddItemsScreen);
         leIsle->setObjectName("leIsle");
         leIsle->setGeometry(QRect(130, 190, 721, 22));
         leMan = new QLineEdit(AddItemsScreen);
         leMan->setObjectName("leMan");
-        leMan->setGeometry(QRect(130, 250, 721, 22));
+        leMan->setGeometry(QRect(130, 280, 721, 22));
         leBin = new QLineEdit(AddItemsScreen);
         leBin->setObjectName("leBin");
         leBin->setGeometry(QRect(130, 220, 721, 22));
+        lblShelf = new QLabel(AddItemsScreen);
+        lblShelf->setObjectName("lblShelf");
+        lblShelf->setGeometry(QRect(10, 250, 151, 16));
+        leShelf = new QLineEdit(AddItemsScreen);
+        leShelf->setObjectName("leShelf");
+        leShelf->setGeometry(QRect(130, 250, 721, 22));
 
         retranslateUi(AddItemsScreen);
 
@@ -121,8 +129,9 @@ public:
         btnAddItem->setText(QCoreApplication::translate("AddItemsScreen", "Add Item", nullptr));
         btnCancel->setText(QCoreApplication::translate("AddItemsScreen", "Cancel", nullptr));
         label_2->setText(QCoreApplication::translate("AddItemsScreen", "Isle number:", nullptr));
-        lblBin->setText(QCoreApplication::translate("AddItemsScreen", "Bin Number", nullptr));
-        lblMan->setText(QCoreApplication::translate("AddItemsScreen", "Manufacturer", nullptr));
+        lblBin->setText(QCoreApplication::translate("AddItemsScreen", "Bin Number:", nullptr));
+        lblMan->setText(QCoreApplication::translate("AddItemsScreen", "Manufacturer:", nullptr));
+        lblShelf->setText(QCoreApplication::translate("AddItemsScreen", "Shelf:", nullptr));
     } // retranslateUi
 
 };

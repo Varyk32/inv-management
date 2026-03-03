@@ -4,9 +4,11 @@
 #include "qtablewidget.h"
 #include <QMainWindow>
 #include <QtSql>
-//#include <QtSql/QSqlDatabase>
-//#include <QtSql/QSqlError>
-//#include <qdebug.h>
+#include <QtSql/QSqlDatabase>
+#include <QtSql/QSqlError>
+#include <qdebug.h>
+#include <QLatin1StringMatcher>
+#include <QLatin1StringView>
 
 extern QTableWidget twInventoryList;
 

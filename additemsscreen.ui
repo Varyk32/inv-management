@@ -190,20 +190,20 @@
     </rect>
    </property>
    <property name="text">
-    <string>Bin Number</string>
+    <string>Bin Number:</string>
    </property>
   </widget>
   <widget class="QLabel" name="lblMan">
    <property name="geometry">
     <rect>
      <x>10</x>
-     <y>250</y>
+     <y>280</y>
      <width>151</width>
      <height>16</height>
     </rect>
    </property>
    <property name="text">
-    <string>Manufacturer</string>
+    <string>Manufacturer:</string>
    </property>
   </widget>
   <widget class="QLineEdit" name="leIsle">
@@ -220,7 +220,7 @@
    <property name="geometry">
     <rect>
      <x>130</x>
-     <y>250</y>
+     <y>280</y>
      <width>721</width>
      <height>22</height>
     </rect>
@@ -231,6 +231,29 @@
     <rect>
      <x>130</x>
      <y>220</y>
+     <width>721</width>
+     <height>22</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QLabel" name="lblShelf">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>250</y>
+     <width>151</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Shelf:</string>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="leShelf">
+   <property name="geometry">
+    <rect>
+     <x>130</x>
+     <y>250</y>
      <width>721</width>
      <height>22</height>
     </rect>

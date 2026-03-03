@@ -46,7 +46,7 @@ public:
     {
         if (MainWindow->objectName().isEmpty())
             MainWindow->setObjectName("MainWindow");
-        MainWindow->resize(1063, 733);
+        MainWindow->resize(1308, 923);
         centralwidget = new QWidget(MainWindow);
         centralwidget->setObjectName("centralwidget");
         lblStoreManager = new QLabel(centralwidget);
@@ -71,12 +71,12 @@ public:
         btnLogin->setGeometry(QRect(680, 0, 131, 61));
         frameInventoryList = new QFrame(centralwidget);
         frameInventoryList->setObjectName("frameInventoryList");
-        frameInventoryList->setGeometry(QRect(30, 150, 961, 531));
+        frameInventoryList->setGeometry(QRect(30, 150, 1241, 741));
         frameInventoryList->setFrameShape(QFrame::Shape::StyledPanel);
         frameInventoryList->setFrameShadow(QFrame::Shadow::Raised);
         twInventoryList = new QTableWidget(frameInventoryList);
-        if (twInventoryList->columnCount() < 8)
-            twInventoryList->setColumnCount(8);
+        if (twInventoryList->columnCount() < 10)
+            twInventoryList->setColumnCount(10);
         QTableWidgetItem *__qtablewidgetitem = new QTableWidgetItem();
         twInventoryList->setHorizontalHeaderItem(0, __qtablewidgetitem);
         QTableWidgetItem *__qtablewidgetitem1 = new QTableWidgetItem();
@@ -93,8 +93,12 @@ public:
         twInventoryList->setHorizontalHeaderItem(6, __qtablewidgetitem6);
         QTableWidgetItem *__qtablewidgetitem7 = new QTableWidgetItem();
         twInventoryList->setHorizontalHeaderItem(7, __qtablewidgetitem7);
+        QTableWidgetItem *__qtablewidgetitem8 = new QTableWidgetItem();
+        twInventoryList->setHorizontalHeaderItem(8, __qtablewidgetitem8);
+        QTableWidgetItem *__qtablewidgetitem9 = new QTableWidgetItem();
+        twInventoryList->setHorizontalHeaderItem(9, __qtablewidgetitem9);
         twInventoryList->setObjectName("twInventoryList");
-        twInventoryList->setGeometry(QRect(0, 10, 951, 531));
+        twInventoryList->setGeometry(QRect(0, 10, 1231, 711));
         leSearchBar = new QLineEdit(centralwidget);
         leSearchBar->setObjectName("leSearchBar");
         leSearchBar->setGeometry(QRect(30, 60, 581, 41));
@@ -113,7 +117,7 @@ public:
         MainWindow->setCentralWidget(centralwidget);
         menubar = new QMenuBar(MainWindow);
         menubar->setObjectName("menubar");
-        menubar->setGeometry(QRect(0, 0, 1063, 20));
+        menubar->setGeometry(QRect(0, 0, 1308, 20));
         MainWindow->setMenuBar(menubar);
         statusbar = new QStatusBar(MainWindow);
         statusbar->setObjectName("statusbar");
@@ -135,17 +139,21 @@ public:
         QTableWidgetItem *___qtablewidgetitem1 = twInventoryList->horizontalHeaderItem(1);
         ___qtablewidgetitem1->setText(QCoreApplication::translate("MainWindow", "Isle", nullptr));
         QTableWidgetItem *___qtablewidgetitem2 = twInventoryList->horizontalHeaderItem(2);
-        ___qtablewidgetitem2->setText(QCoreApplication::translate("MainWindow", "Bin Number", nullptr));
+        ___qtablewidgetitem2->setText(QCoreApplication::translate("MainWindow", "Shelf", nullptr));
         QTableWidgetItem *___qtablewidgetitem3 = twInventoryList->horizontalHeaderItem(3);
-        ___qtablewidgetitem3->setText(QCoreApplication::translate("MainWindow", "Part Number", nullptr));
+        ___qtablewidgetitem3->setText(QCoreApplication::translate("MainWindow", "Bin Number", nullptr));
         QTableWidgetItem *___qtablewidgetitem4 = twInventoryList->horizontalHeaderItem(4);
-        ___qtablewidgetitem4->setText(QCoreApplication::translate("MainWindow", "Part Description", nullptr));
+        ___qtablewidgetitem4->setText(QCoreApplication::translate("MainWindow", "Part Number", nullptr));
         QTableWidgetItem *___qtablewidgetitem5 = twInventoryList->horizontalHeaderItem(5);
-        ___qtablewidgetitem5->setText(QCoreApplication::translate("MainWindow", "Manufacturer", nullptr));
+        ___qtablewidgetitem5->setText(QCoreApplication::translate("MainWindow", "Part Description", nullptr));
         QTableWidgetItem *___qtablewidgetitem6 = twInventoryList->horizontalHeaderItem(6);
-        ___qtablewidgetitem6->setText(QCoreApplication::translate("MainWindow", "NIS", nullptr));
+        ___qtablewidgetitem6->setText(QCoreApplication::translate("MainWindow", "Manufacturer", nullptr));
         QTableWidgetItem *___qtablewidgetitem7 = twInventoryList->horizontalHeaderItem(7);
-        ___qtablewidgetitem7->setText(QCoreApplication::translate("MainWindow", "MPA", nullptr));
+        ___qtablewidgetitem7->setText(QCoreApplication::translate("MainWindow", "NIS", nullptr));
+        QTableWidgetItem *___qtablewidgetitem8 = twInventoryList->horizontalHeaderItem(8);
+        ___qtablewidgetitem8->setText(QCoreApplication::translate("MainWindow", "MPA", nullptr));
+        QTableWidgetItem *___qtablewidgetitem9 = twInventoryList->horizontalHeaderItem(9);
+        ___qtablewidgetitem9->setText(QCoreApplication::translate("MainWindow", "Marker", nullptr));
         pushButton->setText(QCoreApplication::translate("MainWindow", "Search", nullptr));
         btnSettings->setText(QCoreApplication::translate("MainWindow", "Settings", nullptr));
         btnLogout->setText(QCoreApplication::translate("MainWindow", "Log Out", nullptr));

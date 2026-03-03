@@ -13,6 +13,7 @@ QString manufacturer;
 QString minStock;
 QString currStock;
 QString binNum;
+QString shelf;
 
 //QSqlDatabase DB_connection = QSqlDatabase::addDatabase("QSQLITE");                          //connect to the database so you can add items
 //DB_connection.setDatabaseName(QCoreApplication::applicationDirPath()+"/Inventory.db");
@@ -55,9 +56,10 @@ void AddItemsScreen::on_btnAddItem_clicked()
 
     QSqlDatabase::database().transaction();
     QSqlQuery QueryInsertData(DB_connectionModData);               //Queries the database to let it know data will be coming in
-    QueryInsertData.prepare("INSERT INTO InventoryData(AINumber, IsleNumber, BinNumber, PartNumber, PartDesc, Manufacturer, NumberInStock, MinimumAllowedStock) VALUES(:AINumber, :IsleNumber, :BinNumber, :PartNumber, :PartDesc, :Manufacturer, :NumberInStock, :MinimumAllowedStock)");
+    QueryInsertData.prepare("INSERT INTO InventoryData(AINumber, IsleNumber, Shelf, BinNumber, PartNumber, PartDesc, Manufacturer, NumberInStock, MinimumAllowedStock) VALUES(:AINumber, :IsleNumber, :BinNumber, :Shelf, :PartNumber, :PartDesc, :Manufacturer, :NumberInStock, :MinimumAllowedStock)");
     QueryInsertData.bindValue(":AINumber", ui->leAINumber->text());         //inserts the values of the textedit boxes into the database
     QueryInsertData.bindValue(":IsleNumber", ui->leIsle->text());
+    QueryInsertData.bindValue(":Shelf", ui->leShelf->text());
     QueryInsertData.bindValue(":BinNumber", ui->leBin->text());
     QueryInsertData.bindValue(":PartNumber", ui->lePartNumber->text());
     QueryInsertData.bindValue(":PartDesc", ui->teItemDesc->text());

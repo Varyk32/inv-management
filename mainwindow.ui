@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1063</width>
-    <height>733</height>
+    <width>1308</width>
+    <height>923</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -84,8 +84,8 @@
      <rect>
       <x>30</x>
       <y>150</y>
-      <width>961</width>
-      <height>531</height>
+      <width>1241</width>
+      <height>741</height>
      </rect>
     </property>
     <property name="frameShape">
@@ -99,8 +99,8 @@
       <rect>
        <x>0</x>
        <y>10</y>
-       <width>951</width>
-       <height>531</height>
+       <width>1231</width>
+       <height>711</height>
       </rect>
      </property>
      <column>
@@ -111,6 +111,11 @@
      <column>
       <property name="text">
        <string>Isle</string>
+      </property>
+     </column>
+     <column>
+      <property name="text">
+       <string>Shelf</string>
       </property>
      </column>
      <column>
@@ -141,6 +146,11 @@
      <column>
       <property name="text">
        <string>MPA</string>
+      </property>
+     </column>
+     <column>
+      <property name="text">
+       <string>Marker</string>
       </property>
      </column>
     </widget>
@@ -213,7 +223,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>1063</width>
+     <width>1308</width>
      <height>20</height>
     </rect>
    </property>

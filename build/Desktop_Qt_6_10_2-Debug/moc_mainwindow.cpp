@@ -93,7 +93,6 @@ void MainWindow::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, 
         case 0: _t->on_btnLogin_clicked(); break;
         case 1: _t->on_btnAddItems_clicked(); break;
         case 2: _t->on_btnSettings_clicked(); break;
-        //case 3: _t->on_twInventoryList_itemClicked((*reinterpret_cast<std::add_pointer_t<QTableWidgetItem*>>(_a[1]))); break;
         case 4: _t->on_twInventoryList_itemPressed((*reinterpret_cast<std::add_pointer_t<QTableWidgetItem*>>(_a[1]))); break;
         case 5: _t->on_pushButton_clicked(); break;
         default: ;

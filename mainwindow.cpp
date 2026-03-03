@@ -4,7 +4,6 @@
 #include "settingsscreen.h"
 #include "logindialogue.h"
 #include "itembookoutdialogue.h"
-//lude "qtabelwidget.h"
 
 int preparedTotalAmountOfItems = 3000;
 
@@ -16,7 +15,7 @@ MainWindow::MainWindow(QWidget *parent)
 
 
     //connect to the sql database
-    QSqlDatabase DB_connection = QSqlDatabase::addDatabase("QSQLITE");
+    QSqlDatabase DB_connection = QSqlDatabase::addDatabase("QSQLITE"/*, "SQLITE" */);
     DB_connection.setDatabaseName(QCoreApplication::applicationDirPath()+"/Inventory.db");          //file path of the database file
     if (DB_connection.open())
     {
@@ -80,33 +79,42 @@ void MainWindow::on_pushButton_clicked()
     QSqlQuery QueryLoadData(DB_connection);
     QueryLoadData.prepare("SELECT * FROM InventoryData");
 
+    ui->twInventoryList->setRowCount(preparedTotalAmountOfItems);
+
     if (QueryLoadData.exec())
     {
 
         int rowNumber = 0;
         while (QueryLoadData.next())
         {
+            //sid j
+
             ui->twInventoryList->setItem(rowNumber, 0, new QTableWidgetItem(QString(QueryLoadData.value("AINumber").toString())));          //loads in all the data from the database
             ui->twInventoryList->setItem(rowNumber, 1, new QTableWidgetItem(QString(QueryLoadData.value("IsleNumber").toString())));
-            ui->twInventoryList->setItem(rowNumber, 2, new QTableWidgetItem(QString(QueryLoadData.value("BinNumber").toString())));
-            ui->twInventoryList->setItem(rowNumber, 3, new QTableWidgetItem(QString(QueryLoadData.value("PartNumber").toString())));
-            ui->twInventoryList->setItem(rowNumber, 4, new QTableWidgetItem(QString(QueryLoadData.value("PartDesc").toString())));
-            ui->twInventoryList->setItem(rowNumber, 5, new QTableWidgetItem(QString(QueryLoadData.value("Manufacturer").toString())));
-            ui->twInventoryList->setItem(rowNumber, 6, new QTableWidgetItem(QString(QueryLoadData.value("NumberInStock").toString())));
-            ui->twInventoryList->setItem(rowNumber, 7, new QTableWidgetItem(QString(QueryLoadData.value("MinimumAllowedStock").toString())));
+            ui->twInventoryList->setItem(rowNumber, 2, new QTableWidgetItem(QString(QueryLoadData.value("Shelf").toString())));
+            ui->twInventoryList->setItem(rowNumber, 3, new QTableWidgetItem(QString(QueryLoadData.value("BinNumber").toString())));
+            ui->twInventoryList->setItem(rowNumber, 4, new QTableWidgetItem(QString(QueryLoadData.value("PartNumber").toString())));
+            ui->twInventoryList->setItem(rowNumber, 5, new QTableWidgetItem(QString(QueryLoadData.value("PartDesc").toString())));
+            ui->twInventoryList->setItem(rowNumber, 6, new QTableWidgetItem(QString(QueryLoadData.value("Manufacturer").toString())));
+            ui->twInventoryList->setItem(rowNumber, 7, new QTableWidgetItem(QString(QueryLoadData.value("NumberInStock").toString())));
+            ui->twInventoryList->setItem(rowNumber, 8, new QTableWidgetItem(QString(QueryLoadData.value("MinimumAllowedStock").toString())));
             rowNumber = rowNumber + 1;
+            qDebug()<<DB_connection.lastError().text();
         }
         QString SearchText = ui->leSearchBar->text();           //sets the searchbar text as a normal string for an easier time for me
 
-        QList<QTableWidgetItem*> foundItems = ui->twInventoryList->findItems(SearchText, Qt::MatchContains);
+        QList<QTableWidgetItem*> foundItems = ui->twInventoryList->findItems(SearchText, Qt::MatchContains & Qt::MatchCaseSensitive);
 
-        for (QTableWidgetItem *item : foundItems) {
-            item->setBackground(Qt::blue);
+         for (QTableWidgetItem *item : foundItems) {
+            //ableWidget::scrollToItem(item);
+            item->setBackground(Qt::darkBlue);
+            item->setForeground(Qt::white);
         }
-     /* QSortFilterProxyModel *proxyModel = new QSortFilterProxyModel(this);        //creates a proxy model to use instead of the normal model
+        qDebug() << QSqlDatabase::drivers();
+       /*  QSortFilterProxyModel *proxyModel = new QSortFilterProxyModel(this);        //creates a proxy model to use instead of the normal model
         proxyModel->setSourceModel(ui->twInventoryList->model());                   //sets the tables model to the new proxy model
         QAbstractItemModel *originalModel = ui->twInventoryList->model();
-        ui->twInventoryList->setModel(proxyModel);  */
+        ui->twInventoryList->setModel(proxyModel); */
 
     }
     //QSqlQuery QueryUpdateData(DB_connectionSearch);

@@ -3,7 +3,7 @@
 #include "additemsscreen.h"
 #include "settingsscreen.h"
 #include "logindialogue.h"
-#include "itembookoutdialogue.h"
+#include "clocklog.h"
 
 int preparedTotalAmountOfItems = 3000;
 
@@ -65,9 +65,9 @@ void MainWindow::on_twInventoryList_itemPressed(QTableWidgetItem *item)
 {
 
     ui->twInventoryList->setEditTriggers(QAbstractItemView::NoEditTriggers);
-    itemBookoutDialogue bookoutConfirmation;
-    bookoutConfirmation.setModal(true);
-    bookoutConfirmation.exec();
+    clockLog clocklog;
+    clocklog.setModal(true);
+    clocklog.exec();
 }
 
 

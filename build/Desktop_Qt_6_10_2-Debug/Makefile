@@ -53,23 +53,23 @@ OBJECTS_DIR   = ./
 ####### Files
 
 SOURCES       = ../../additemsscreen.cpp \
-		../../itembookoutdialogue.cpp \
+		../../clocklog.cpp \
 		../../logindialogue.cpp \
 		../../main.cpp \
 		../../mainwindow.cpp \
 		../../settingsscreen.cpp moc_additemsscreen.cpp \
-		moc_itembookoutdialogue.cpp \
+		moc_clocklog.cpp \
 		moc_logindialogue.cpp \
 		moc_mainwindow.cpp \
 		moc_settingsscreen.cpp
 OBJECTS       = additemsscreen.o \
-		itembookoutdialogue.o \
+		clocklog.o \
 		logindialogue.o \
 		main.o \
 		mainwindow.o \
 		settingsscreen.o \
 		moc_additemsscreen.o \
-		moc_itembookoutdialogue.o \
+		moc_clocklog.o \
 		moc_logindialogue.o \
 		moc_mainwindow.o \
 		moc_settingsscreen.o
@@ -309,11 +309,11 @@ DIST          = /home/varyk/Qt/6.10.2/gcc_64/mkspecs/features/spec_pre.prf \
 		/home/varyk/Qt/6.10.2/gcc_64/mkspecs/features/yacc.prf \
 		/home/varyk/Qt/6.10.2/gcc_64/mkspecs/features/lex.prf \
 		../../../../StoreManagementProgram1.pro ../../additemsscreen.h \
-		../../itembookoutdialogue.h \
+		../../clocklog.h \
 		../../logindialogue.h \
 		../../mainwindow.h \
 		../../settingsscreen.h ../../additemsscreen.cpp \
-		../../itembookoutdialogue.cpp \
+		../../clocklog.cpp \
 		../../logindialogue.cpp \
 		../../main.cpp \
 		../../mainwindow.cpp \
@@ -326,7 +326,7 @@ TARGET        = StoreManagementProgram1
 first: all
 ####### Build rules
 
-StoreManagementProgram1: ui_additemsscreen.h ui_itembookoutdialogue.h ui_logindialogue.h ui_mainwindow.h ui_settingsscreen.h $(OBJECTS)  
+StoreManagementProgram1: ui_additemsscreen.h ui_clocklog.h ui_logindialogue.h ui_mainwindow.h ui_settingsscreen.h $(OBJECTS)  
 	$(LINK) $(LFLAGS) -o $(TARGET)  $(OBJECTS) $(OBJCOMP) $(LIBS)
 
 Makefile: ../../StoreManagementProgram1.pro /home/varyk/Qt/6.10.2/gcc_64/mkspecs/linux-g++/qmake.conf /home/varyk/Qt/6.10.2/gcc_64/mkspecs/features/spec_pre.prf \
@@ -825,9 +825,9 @@ distdir: FORCE
 	@test -d $(DISTDIR) || mkdir -p $(DISTDIR)
 	$(COPY_FILE) --parents $(DIST) $(DISTDIR)/
 	$(COPY_FILE) --parents /home/varyk/Qt/6.10.2/gcc_64/mkspecs/features/data/dummy.cpp $(DISTDIR)/
-	$(COPY_FILE) --parents ../../additemsscreen.h ../../itembookoutdialogue.h ../../logindialogue.h ../../mainwindow.h ../../settingsscreen.h $(DISTDIR)/
-	$(COPY_FILE) --parents ../../additemsscreen.cpp ../../itembookoutdialogue.cpp ../../logindialogue.cpp ../../main.cpp ../../mainwindow.cpp ../../settingsscreen.cpp $(DISTDIR)/
-	$(COPY_FILE) --parents ../../additemsscreen.ui ../../itembookoutdialogue.ui ../../logindialogue.ui ../../mainwindow.ui ../../settingsscreen.ui $(DISTDIR)/
+	$(COPY_FILE) --parents ../../additemsscreen.h ../../clocklog.h ../../logindialogue.h ../../mainwindow.h ../../settingsscreen.h $(DISTDIR)/
+	$(COPY_FILE) --parents ../../additemsscreen.cpp ../../clocklog.cpp ../../logindialogue.cpp ../../main.cpp ../../mainwindow.cpp ../../settingsscreen.cpp $(DISTDIR)/
+	$(COPY_FILE) --parents ../../additemsscreen.ui ../../clocklog.ui ../../logindialogue.ui ../../mainwindow.ui ../../settingsscreen.ui $(DISTDIR)/
 
 
 clean: compiler_clean 
@@ -859,9 +859,9 @@ compiler_moc_predefs_clean:
 moc_predefs.h: /home/varyk/Qt/6.10.2/gcc_64/mkspecs/features/data/dummy.cpp
 	g++ -pipe -g -std=gnu++1z -Wall -Wextra -fPIC -dM -E -o moc_predefs.h /home/varyk/Qt/6.10.2/gcc_64/mkspecs/features/data/dummy.cpp
 
-compiler_moc_header_make_all: moc_additemsscreen.cpp moc_itembookoutdialogue.cpp moc_logindialogue.cpp moc_mainwindow.cpp moc_settingsscreen.cpp
+compiler_moc_header_make_all: moc_additemsscreen.cpp moc_clocklog.cpp moc_logindialogue.cpp moc_mainwindow.cpp moc_settingsscreen.cpp
 compiler_moc_header_clean:
-	-$(DEL_FILE) moc_additemsscreen.cpp moc_itembookoutdialogue.cpp moc_logindialogue.cpp moc_mainwindow.cpp moc_settingsscreen.cpp
+	-$(DEL_FILE) moc_additemsscreen.cpp moc_clocklog.cpp moc_logindialogue.cpp moc_mainwindow.cpp moc_settingsscreen.cpp
 moc_additemsscreen.cpp: ../../additemsscreen.h \
 		/home/varyk/Qt/6.10.2/gcc_64/include/QtWidgets/QDialog \
 		/home/varyk/Qt/6.10.2/gcc_64/include/QtWidgets/qdialog.h \
@@ -1061,11 +1061,15 @@ moc_additemsscreen.cpp: ../../additemsscreen.h \
 		/home/varyk/Qt/6.10.2/gcc_64/include/QtGui/qinputmethod.h \
 		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/qlocale.h \
 		/home/varyk/Qt/6.10.2/gcc_64/include/QtGui/qguiapplication_platform.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtSql/QSql \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtSql/qtsqlglobal.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtSql/qtsql-config.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtSql/qtsqlexports.h \
 		moc_predefs.h \
 		/home/varyk/Qt/6.10.2/gcc_64/libexec/moc
 	/home/varyk/Qt/6.10.2/gcc_64/libexec/moc $(DEFINES) --include '/home/varyk/Documents/Programming Projects/StoreManagementProgram/StoreManagementProgram1/build/Desktop_Qt_6_10_2-Debug/moc_predefs.h' -I/home/varyk/Qt/6.10.2/gcc_64/mkspecs/linux-g++ -I'/home/varyk/Documents/Programming Projects/StoreManagementProgram/StoreManagementProgram1' -I/home/varyk/Qt/6.10.2/gcc_64/include -I/home/varyk/Qt/6.10.2/gcc_64/include/QtWidgets -I/home/varyk/Qt/6.10.2/gcc_64/include/QtGui -I/home/varyk/Qt/6.10.2/gcc_64/include/QtSql -I/home/varyk/Qt/6.10.2/gcc_64/include/QtCore -I. -I/usr/include/c++/15.2.1 -I/usr/include/c++/15.2.1/x86_64-pc-linux-gnu -I/usr/include/c++/15.2.1/backward -I/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include -I/usr/local/include -I/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include-fixed -I/usr/include ../../additemsscreen.h -o moc_additemsscreen.cpp
 
-moc_itembookoutdialogue.cpp: ../../itembookoutdialogue.h \
+moc_clocklog.cpp: ../../clocklog.h \
 		/home/varyk/Qt/6.10.2/gcc_64/include/QtWidgets/QDialog \
 		/home/varyk/Qt/6.10.2/gcc_64/include/QtWidgets/qdialog.h \
 		/home/varyk/Qt/6.10.2/gcc_64/include/QtWidgets/qtwidgetsglobal.h \
@@ -1266,7 +1270,7 @@ moc_itembookoutdialogue.cpp: ../../itembookoutdialogue.h \
 		/home/varyk/Qt/6.10.2/gcc_64/include/QtGui/qguiapplication_platform.h \
 		moc_predefs.h \
 		/home/varyk/Qt/6.10.2/gcc_64/libexec/moc
-	/home/varyk/Qt/6.10.2/gcc_64/libexec/moc $(DEFINES) --include '/home/varyk/Documents/Programming Projects/StoreManagementProgram/StoreManagementProgram1/build/Desktop_Qt_6_10_2-Debug/moc_predefs.h' -I/home/varyk/Qt/6.10.2/gcc_64/mkspecs/linux-g++ -I'/home/varyk/Documents/Programming Projects/StoreManagementProgram/StoreManagementProgram1' -I/home/varyk/Qt/6.10.2/gcc_64/include -I/home/varyk/Qt/6.10.2/gcc_64/include/QtWidgets -I/home/varyk/Qt/6.10.2/gcc_64/include/QtGui -I/home/varyk/Qt/6.10.2/gcc_64/include/QtSql -I/home/varyk/Qt/6.10.2/gcc_64/include/QtCore -I. -I/usr/include/c++/15.2.1 -I/usr/include/c++/15.2.1/x86_64-pc-linux-gnu -I/usr/include/c++/15.2.1/backward -I/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include -I/usr/local/include -I/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include-fixed -I/usr/include ../../itembookoutdialogue.h -o moc_itembookoutdialogue.cpp
+	/home/varyk/Qt/6.10.2/gcc_64/libexec/moc $(DEFINES) --include '/home/varyk/Documents/Programming Projects/StoreManagementProgram/StoreManagementProgram1/build/Desktop_Qt_6_10_2-Debug/moc_predefs.h' -I/home/varyk/Qt/6.10.2/gcc_64/mkspecs/linux-g++ -I'/home/varyk/Documents/Programming Projects/StoreManagementProgram/StoreManagementProgram1' -I/home/varyk/Qt/6.10.2/gcc_64/include -I/home/varyk/Qt/6.10.2/gcc_64/include/QtWidgets -I/home/varyk/Qt/6.10.2/gcc_64/include/QtGui -I/home/varyk/Qt/6.10.2/gcc_64/include/QtSql -I/home/varyk/Qt/6.10.2/gcc_64/include/QtCore -I. -I/usr/include/c++/15.2.1 -I/usr/include/c++/15.2.1/x86_64-pc-linux-gnu -I/usr/include/c++/15.2.1/backward -I/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include -I/usr/local/include -I/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include-fixed -I/usr/include ../../clocklog.h -o moc_clocklog.cpp
 
 moc_logindialogue.cpp: ../../logindialogue.h \
 		/home/varyk/Qt/6.10.2/gcc_64/include/QtWidgets/QDialog \
@@ -1696,15 +1700,164 @@ moc_mainwindow.cpp: ../../mainwindow.h \
 		/home/varyk/Qt/6.10.2/gcc_64/include/QtWidgets/qrubberband.h \
 		/home/varyk/Qt/6.10.2/gcc_64/include/QtWidgets/QMainWindow \
 		/home/varyk/Qt/6.10.2/gcc_64/include/QtWidgets/qmainwindow.h \
-		/home/varyk/Qt/6.10.2/gcc_64/include/QtSql/QSql \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtSql/QtSql \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtSql/QtSqlDepends \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/QtCore \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/QtCoreDepends \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/q20algorithm.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/q20chrono.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/q20map.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/q20vector.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/q23functional.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/q26numeric.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/qabstractanimation.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/qabstractnativeeventfilter.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/qabstractproxymodel.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/qanimationgroup.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/qapplicationstatic.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/QMutex \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/qassociativeiterable.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/qatomicscopedvaluerollback.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/qbitarray.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/qbuffer.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/qbytearraymatcher.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/qcache.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/qcalendar.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/qcborarray.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/qcborvalue.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/qcborcommon.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/qdatetime.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/quuid.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/qcbormap.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/qcborstream.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/qcborstreamreader.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/qcborstreamwriter.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/qchronotimer.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/qproperty.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/qpropertyprivate.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/qtimer.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/qcollator.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/qcommandlineoption.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/qcommandlineparser.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/qconcatenatetablesproxymodel.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/qcryptographichash.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/qdir.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/qdirlisting.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/qfiledevice.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/qfile.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/qfileinfo.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/qtimezone.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/qdiriterator.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/qeasingcurve.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/qelapsedtimer.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/qfactoryinterface.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/qfileselector.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/QStringList \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/qfilesystemwatcher.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/qfuturesynchronizer.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/qfuturewatcher.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/qidentityproxymodel.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/qjsonarray.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/qjsonvalue.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/qjsondocument.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/qjsonparseerror.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/qjsonobject.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/qlatin1stringmatcher.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/qlibrary.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/qlibraryinfo.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/qversionnumber.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/qtyperevision.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/qlockfile.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/qloggingcategory.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/qmessageauthenticationcode.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/qmetaobject.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/qmimedata.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/qmimedatabase.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/qmimetype.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/qobjectcleanuphandler.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/qoperatingsystemversion.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/qparallelanimationgroup.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/qpauseanimation.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/qpermissions.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/qplugin.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/qpointer.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/qpluginloader.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/qprocess.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/qpropertyanimation.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/qvariantanimation.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/qqueue.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/qrandom.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/qrangemodel.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/qrangemodel_impl.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/qreadwritelock.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/qresource.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/qsavefile.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/qscopedvaluerollback.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/qsemaphore.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/qsequentialanimationgroup.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/qsequentialiterable.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/qsettings.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/qsharedmemory.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/qtipccommon.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/qsignalmapper.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/qsimd.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/qsocketnotifier.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/qsortfilterproxymodel.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/qstack.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/qstandardpaths.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/qstaticlatin1stringmatcher.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/qstorageinfo.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/qstringlistmodel.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/qstringliteral.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/qsystemsemaphore.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/qtcoreversion.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/qtemporarydir.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/qtemporaryfile.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/qtextboundaryfinder.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/qthreadstorage.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/qtimeline.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/qtmocconstants.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/qtranslator.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/qtransposeproxymodel.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/qtsymbolmacros.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/qurlquery.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/qvarianthash.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/QHash \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/QVariant \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/QString \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/qvariantlist.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/qvariantmap.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/QMap \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/qvector.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/qwaitcondition.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/QDeadlineTimer \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/qwineventnotifier.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/qxmlstream.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/qxpfunctional.h \
 		/home/varyk/Qt/6.10.2/gcc_64/include/QtSql/qtsqlglobal.h \
 		/home/varyk/Qt/6.10.2/gcc_64/include/QtSql/qtsql-config.h \
 		/home/varyk/Qt/6.10.2/gcc_64/include/QtSql/qtsqlexports.h \
-		/home/varyk/Qt/6.10.2/gcc_64/include/QtSql/QSqlDatabase \
 		/home/varyk/Qt/6.10.2/gcc_64/include/QtSql/qsqldatabase.h \
-		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/qmetaobject.h \
-		/home/varyk/Qt/6.10.2/gcc_64/include/QtSql/QSqlError \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtSql/qsqldriver.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtSql/qsqldriverplugin.h \
 		/home/varyk/Qt/6.10.2/gcc_64/include/QtSql/qsqlerror.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtSql/qsqlfield.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtSql/qsqlindex.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtSql/qsqlrecord.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtSql/qsqlquery.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtSql/qsqlquerymodel.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtSql/qsqlrelationaldelegate.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtWidgets/qstyleditemdelegate.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtWidgets/qlistview.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtWidgets/qcombobox.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtSql/qsqlrelationaltablemodel.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtSql/qsqltablemodel.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtSql/qsqlresult.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtSql/qtsqlversion.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtSql/QSqlDatabase \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtSql/QSqlError \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/QLatin1StringMatcher \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/QLatin1StringView \
 		moc_predefs.h \
 		/home/varyk/Qt/6.10.2/gcc_64/libexec/moc
 	/home/varyk/Qt/6.10.2/gcc_64/libexec/moc $(DEFINES) --include '/home/varyk/Documents/Programming Projects/StoreManagementProgram/StoreManagementProgram1/build/Desktop_Qt_6_10_2-Debug/moc_predefs.h' -I/home/varyk/Qt/6.10.2/gcc_64/mkspecs/linux-g++ -I'/home/varyk/Documents/Programming Projects/StoreManagementProgram/StoreManagementProgram1' -I/home/varyk/Qt/6.10.2/gcc_64/include -I/home/varyk/Qt/6.10.2/gcc_64/include/QtWidgets -I/home/varyk/Qt/6.10.2/gcc_64/include/QtGui -I/home/varyk/Qt/6.10.2/gcc_64/include/QtSql -I/home/varyk/Qt/6.10.2/gcc_64/include/QtCore -I. -I/usr/include/c++/15.2.1 -I/usr/include/c++/15.2.1/x86_64-pc-linux-gnu -I/usr/include/c++/15.2.1/backward -I/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include -I/usr/local/include -I/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include-fixed -I/usr/include ../../mainwindow.h -o moc_mainwindow.cpp
@@ -1916,16 +2069,16 @@ compiler_moc_objc_header_make_all:
 compiler_moc_objc_header_clean:
 compiler_moc_source_make_all:
 compiler_moc_source_clean:
-compiler_uic_make_all: ui_additemsscreen.h ui_itembookoutdialogue.h ui_logindialogue.h ui_mainwindow.h ui_settingsscreen.h
+compiler_uic_make_all: ui_additemsscreen.h ui_clocklog.h ui_logindialogue.h ui_mainwindow.h ui_settingsscreen.h
 compiler_uic_clean:
-	-$(DEL_FILE) ui_additemsscreen.h ui_itembookoutdialogue.h ui_logindialogue.h ui_mainwindow.h ui_settingsscreen.h
+	-$(DEL_FILE) ui_additemsscreen.h ui_clocklog.h ui_logindialogue.h ui_mainwindow.h ui_settingsscreen.h
 ui_additemsscreen.h: ../../additemsscreen.ui \
 		/home/varyk/Qt/6.10.2/gcc_64/libexec/uic
 	/home/varyk/Qt/6.10.2/gcc_64/libexec/uic ../../additemsscreen.ui -o ui_additemsscreen.h
 
-ui_itembookoutdialogue.h: ../../itembookoutdialogue.ui \
+ui_clocklog.h: ../../clocklog.ui \
 		/home/varyk/Qt/6.10.2/gcc_64/libexec/uic
-	/home/varyk/Qt/6.10.2/gcc_64/libexec/uic ../../itembookoutdialogue.ui -o ui_itembookoutdialogue.h
+	/home/varyk/Qt/6.10.2/gcc_64/libexec/uic ../../clocklog.ui -o ui_clocklog.h
 
 ui_logindialogue.h: ../../logindialogue.ui \
 		/home/varyk/Qt/6.10.2/gcc_64/libexec/uic
@@ -2148,6 +2301,10 @@ additemsscreen.o: ../../additemsscreen.cpp ../../additemsscreen.h \
 		/home/varyk/Qt/6.10.2/gcc_64/include/QtGui/qinputmethod.h \
 		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/qlocale.h \
 		/home/varyk/Qt/6.10.2/gcc_64/include/QtGui/qguiapplication_platform.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtSql/QSql \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtSql/qtsqlglobal.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtSql/qtsql-config.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtSql/qtsqlexports.h \
 		ui_additemsscreen.h \
 		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/QVariant \
 		/home/varyk/Qt/6.10.2/gcc_64/include/QtWidgets/QApplication \
@@ -2187,18 +2344,163 @@ additemsscreen.o: ../../additemsscreen.cpp ../../additemsscreen.h \
 		../../mainwindow.h \
 		/home/varyk/Qt/6.10.2/gcc_64/include/QtWidgets/QMainWindow \
 		/home/varyk/Qt/6.10.2/gcc_64/include/QtWidgets/qmainwindow.h \
-		/home/varyk/Qt/6.10.2/gcc_64/include/QtSql/QSql \
-		/home/varyk/Qt/6.10.2/gcc_64/include/QtSql/qtsqlglobal.h \
-		/home/varyk/Qt/6.10.2/gcc_64/include/QtSql/qtsql-config.h \
-		/home/varyk/Qt/6.10.2/gcc_64/include/QtSql/qtsqlexports.h \
-		/home/varyk/Qt/6.10.2/gcc_64/include/QtSql/QSqlDatabase \
-		/home/varyk/Qt/6.10.2/gcc_64/include/QtSql/qsqldatabase.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtSql/QtSql \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtSql/QtSqlDepends \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/QtCore \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/QtCoreDepends \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/q20algorithm.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/q20chrono.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/q20map.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/q20vector.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/q23functional.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/q26numeric.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/qabstractanimation.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/qabstractnativeeventfilter.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/qabstractproxymodel.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/qanimationgroup.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/qapplicationstatic.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/QMutex \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/qassociativeiterable.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/qatomicscopedvaluerollback.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/qbitarray.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/qbuffer.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/qbytearraymatcher.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/qcache.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/qcalendar.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/qcborarray.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/qcborvalue.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/qcborcommon.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/qdatetime.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/quuid.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/qcbormap.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/qcborstream.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/qcborstreamreader.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/qcborstreamwriter.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/qchronotimer.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/qproperty.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/qpropertyprivate.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/qtimer.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/qcollator.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/qcommandlineoption.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/qcommandlineparser.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/qconcatenatetablesproxymodel.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/qcryptographichash.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/qdir.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/qdirlisting.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/qfiledevice.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/qfile.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/qfileinfo.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/qtimezone.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/qdiriterator.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/qeasingcurve.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/qelapsedtimer.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/qfactoryinterface.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/qfileselector.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/QStringList \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/qfilesystemwatcher.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/qfuturesynchronizer.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/qfuturewatcher.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/qidentityproxymodel.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/qjsonarray.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/qjsonvalue.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/qjsondocument.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/qjsonparseerror.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/qjsonobject.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/qlatin1stringmatcher.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/qlibrary.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/qlibraryinfo.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/qversionnumber.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/qtyperevision.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/qlockfile.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/qloggingcategory.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/qmessageauthenticationcode.h \
 		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/qmetaobject.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/qmimedata.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/qmimedatabase.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/qmimetype.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/qobjectcleanuphandler.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/qoperatingsystemversion.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/qparallelanimationgroup.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/qpauseanimation.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/qpermissions.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/qplugin.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/qpointer.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/qpluginloader.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/qprocess.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/qpropertyanimation.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/qvariantanimation.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/qqueue.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/qrandom.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/qrangemodel.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/qrangemodel_impl.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/qreadwritelock.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/qresource.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/qsavefile.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/qscopedvaluerollback.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/qsemaphore.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/qsequentialanimationgroup.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/qsequentialiterable.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/qsettings.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/qsharedmemory.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/qtipccommon.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/qsignalmapper.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/qsimd.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/qsocketnotifier.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/qsortfilterproxymodel.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/qstack.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/qstandardpaths.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/qstaticlatin1stringmatcher.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/qstorageinfo.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/qstringlistmodel.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/qstringliteral.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/qsystemsemaphore.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/qtcoreversion.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/qtemporarydir.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/qtemporaryfile.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/qtextboundaryfinder.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/qthreadstorage.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/qtimeline.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/qtmocconstants.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/qtranslator.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/qtransposeproxymodel.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/qtsymbolmacros.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/qurlquery.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/qvarianthash.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/QHash \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/QString \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/qvariantlist.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/qvariantmap.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/QMap \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/qvector.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/qwaitcondition.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/QDeadlineTimer \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/qwineventnotifier.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/qxmlstream.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/qxpfunctional.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtSql/qsqldatabase.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtSql/qsqldriver.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtSql/qsqldriverplugin.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtSql/qsqlerror.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtSql/qsqlfield.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtSql/qsqlindex.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtSql/qsqlrecord.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtSql/qsqlquery.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtSql/qsqlquerymodel.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtSql/qsqlrelationaldelegate.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtWidgets/qstyleditemdelegate.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtWidgets/qlistview.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtWidgets/qcombobox.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtSql/qsqlrelationaltablemodel.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtSql/qsqltablemodel.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtSql/qsqlresult.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtSql/qtsqlversion.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtSql/QSqlDatabase \
 		/home/varyk/Qt/6.10.2/gcc_64/include/QtSql/QSqlError \
-		/home/varyk/Qt/6.10.2/gcc_64/include/QtSql/qsqlerror.h
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/QLatin1StringMatcher \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/QLatin1StringView
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o additemsscreen.o ../../additemsscreen.cpp
 
-itembookoutdialogue.o: ../../itembookoutdialogue.cpp ../../itembookoutdialogue.h \
+clocklog.o: ../../clocklog.cpp ../../clocklog.h \
 		/home/varyk/Qt/6.10.2/gcc_64/include/QtWidgets/QDialog \
 		/home/varyk/Qt/6.10.2/gcc_64/include/QtWidgets/qdialog.h \
 		/home/varyk/Qt/6.10.2/gcc_64/include/QtWidgets/qtwidgetsglobal.h \
@@ -2397,7 +2699,7 @@ itembookoutdialogue.o: ../../itembookoutdialogue.cpp ../../itembookoutdialogue.h
 		/home/varyk/Qt/6.10.2/gcc_64/include/QtGui/qinputmethod.h \
 		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/qlocale.h \
 		/home/varyk/Qt/6.10.2/gcc_64/include/QtGui/qguiapplication_platform.h \
-		ui_itembookoutdialogue.h \
+		ui_clocklog.h \
 		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/QVariant \
 		/home/varyk/Qt/6.10.2/gcc_64/include/QtWidgets/QApplication \
 		/home/varyk/Qt/6.10.2/gcc_64/include/QtWidgets/qapplication.h \
@@ -2414,8 +2716,20 @@ itembookoutdialogue.o: ../../itembookoutdialogue.cpp ../../itembookoutdialogue.h
 		/home/varyk/Qt/6.10.2/gcc_64/include/QtGui/qtextoption.h \
 		/home/varyk/Qt/6.10.2/gcc_64/include/QtWidgets/QPushButton \
 		/home/varyk/Qt/6.10.2/gcc_64/include/QtWidgets/qpushbutton.h \
-		/home/varyk/Qt/6.10.2/gcc_64/include/QtWidgets/qabstractbutton.h
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o itembookoutdialogue.o ../../itembookoutdialogue.cpp
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtWidgets/qabstractbutton.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtWidgets/QTextBrowser \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtWidgets/qtextbrowser.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtWidgets/qtextedit.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtWidgets/qabstractscrollarea.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/qdatetime.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/qcalendar.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/qdir.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/qdirlisting.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/qfiledevice.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/qfile.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/qfileinfo.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/qtimezone.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o clocklog.o ../../clocklog.cpp
 
 logindialogue.o: ../../logindialogue.cpp ../../logindialogue.h \
 		/home/varyk/Qt/6.10.2/gcc_64/include/QtWidgets/QDialog \
@@ -2853,15 +3167,164 @@ main.o: ../../main.cpp ../../mainwindow.h \
 		/home/varyk/Qt/6.10.2/gcc_64/include/QtWidgets/qrubberband.h \
 		/home/varyk/Qt/6.10.2/gcc_64/include/QtWidgets/QMainWindow \
 		/home/varyk/Qt/6.10.2/gcc_64/include/QtWidgets/qmainwindow.h \
-		/home/varyk/Qt/6.10.2/gcc_64/include/QtSql/QSql \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtSql/QtSql \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtSql/QtSqlDepends \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/QtCore \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/QtCoreDepends \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/q20algorithm.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/q20chrono.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/q20map.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/q20vector.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/q23functional.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/q26numeric.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/qabstractanimation.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/qabstractnativeeventfilter.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/qabstractproxymodel.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/qanimationgroup.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/qapplicationstatic.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/QMutex \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/qassociativeiterable.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/qatomicscopedvaluerollback.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/qbitarray.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/qbuffer.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/qbytearraymatcher.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/qcache.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/qcalendar.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/qcborarray.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/qcborvalue.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/qcborcommon.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/qdatetime.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/quuid.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/qcbormap.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/qcborstream.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/qcborstreamreader.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/qcborstreamwriter.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/qchronotimer.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/qproperty.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/qpropertyprivate.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/qtimer.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/qcollator.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/qcommandlineoption.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/qcommandlineparser.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/qconcatenatetablesproxymodel.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/qcryptographichash.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/qdir.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/qdirlisting.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/qfiledevice.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/qfile.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/qfileinfo.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/qtimezone.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/qdiriterator.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/qeasingcurve.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/qelapsedtimer.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/qfactoryinterface.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/qfileselector.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/QStringList \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/qfilesystemwatcher.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/qfuturesynchronizer.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/qfuturewatcher.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/qidentityproxymodel.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/qjsonarray.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/qjsonvalue.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/qjsondocument.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/qjsonparseerror.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/qjsonobject.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/qlatin1stringmatcher.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/qlibrary.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/qlibraryinfo.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/qversionnumber.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/qtyperevision.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/qlockfile.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/qloggingcategory.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/qmessageauthenticationcode.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/qmetaobject.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/qmimedata.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/qmimedatabase.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/qmimetype.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/qobjectcleanuphandler.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/qoperatingsystemversion.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/qparallelanimationgroup.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/qpauseanimation.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/qpermissions.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/qplugin.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/qpointer.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/qpluginloader.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/qprocess.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/qpropertyanimation.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/qvariantanimation.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/qqueue.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/qrandom.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/qrangemodel.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/qrangemodel_impl.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/qreadwritelock.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/qresource.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/qsavefile.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/qscopedvaluerollback.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/qsemaphore.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/qsequentialanimationgroup.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/qsequentialiterable.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/qsettings.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/qsharedmemory.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/qtipccommon.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/qsignalmapper.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/qsimd.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/qsocketnotifier.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/qsortfilterproxymodel.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/qstack.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/qstandardpaths.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/qstaticlatin1stringmatcher.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/qstorageinfo.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/qstringlistmodel.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/qstringliteral.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/qsystemsemaphore.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/qtcoreversion.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/qtemporarydir.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/qtemporaryfile.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/qtextboundaryfinder.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/qthreadstorage.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/qtimeline.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/qtmocconstants.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/qtranslator.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/qtransposeproxymodel.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/qtsymbolmacros.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/qurlquery.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/qvarianthash.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/QHash \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/QVariant \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/QString \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/qvariantlist.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/qvariantmap.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/QMap \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/qvector.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/qwaitcondition.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/QDeadlineTimer \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/qwineventnotifier.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/qxmlstream.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/qxpfunctional.h \
 		/home/varyk/Qt/6.10.2/gcc_64/include/QtSql/qtsqlglobal.h \
 		/home/varyk/Qt/6.10.2/gcc_64/include/QtSql/qtsql-config.h \
 		/home/varyk/Qt/6.10.2/gcc_64/include/QtSql/qtsqlexports.h \
-		/home/varyk/Qt/6.10.2/gcc_64/include/QtSql/QSqlDatabase \
 		/home/varyk/Qt/6.10.2/gcc_64/include/QtSql/qsqldatabase.h \
-		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/qmetaobject.h \
-		/home/varyk/Qt/6.10.2/gcc_64/include/QtSql/QSqlError \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtSql/qsqldriver.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtSql/qsqldriverplugin.h \
 		/home/varyk/Qt/6.10.2/gcc_64/include/QtSql/qsqlerror.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtSql/qsqlfield.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtSql/qsqlindex.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtSql/qsqlrecord.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtSql/qsqlquery.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtSql/qsqlquerymodel.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtSql/qsqlrelationaldelegate.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtWidgets/qstyleditemdelegate.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtWidgets/qlistview.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtWidgets/qcombobox.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtSql/qsqlrelationaltablemodel.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtSql/qsqltablemodel.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtSql/qsqlresult.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtSql/qtsqlversion.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtSql/QSqlDatabase \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtSql/QSqlError \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/QLatin1StringMatcher \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/QLatin1StringView \
 		/home/varyk/Qt/6.10.2/gcc_64/include/QtWidgets/QApplication \
 		/home/varyk/Qt/6.10.2/gcc_64/include/QtWidgets/qapplication.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o main.o ../../main.cpp
@@ -3083,17 +3546,165 @@ mainwindow.o: ../../mainwindow.cpp ../../mainwindow.h \
 		/home/varyk/Qt/6.10.2/gcc_64/include/QtWidgets/qrubberband.h \
 		/home/varyk/Qt/6.10.2/gcc_64/include/QtWidgets/QMainWindow \
 		/home/varyk/Qt/6.10.2/gcc_64/include/QtWidgets/qmainwindow.h \
-		/home/varyk/Qt/6.10.2/gcc_64/include/QtSql/QSql \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtSql/QtSql \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtSql/QtSqlDepends \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/QtCore \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/QtCoreDepends \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/q20algorithm.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/q20chrono.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/q20map.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/q20vector.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/q23functional.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/q26numeric.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/qabstractanimation.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/qabstractnativeeventfilter.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/qabstractproxymodel.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/qanimationgroup.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/qapplicationstatic.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/QMutex \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/qassociativeiterable.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/qatomicscopedvaluerollback.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/qbitarray.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/qbuffer.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/qbytearraymatcher.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/qcache.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/qcalendar.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/qcborarray.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/qcborvalue.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/qcborcommon.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/qdatetime.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/quuid.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/qcbormap.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/qcborstream.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/qcborstreamreader.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/qcborstreamwriter.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/qchronotimer.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/qproperty.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/qpropertyprivate.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/qtimer.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/qcollator.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/qcommandlineoption.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/qcommandlineparser.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/qconcatenatetablesproxymodel.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/qcryptographichash.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/qdir.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/qdirlisting.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/qfiledevice.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/qfile.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/qfileinfo.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/qtimezone.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/qdiriterator.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/qeasingcurve.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/qelapsedtimer.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/qfactoryinterface.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/qfileselector.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/QStringList \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/qfilesystemwatcher.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/qfuturesynchronizer.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/qfuturewatcher.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/qidentityproxymodel.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/qjsonarray.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/qjsonvalue.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/qjsondocument.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/qjsonparseerror.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/qjsonobject.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/qlatin1stringmatcher.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/qlibrary.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/qlibraryinfo.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/qversionnumber.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/qtyperevision.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/qlockfile.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/qloggingcategory.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/qmessageauthenticationcode.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/qmetaobject.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/qmimedata.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/qmimedatabase.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/qmimetype.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/qobjectcleanuphandler.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/qoperatingsystemversion.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/qparallelanimationgroup.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/qpauseanimation.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/qpermissions.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/qplugin.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/qpointer.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/qpluginloader.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/qprocess.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/qpropertyanimation.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/qvariantanimation.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/qqueue.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/qrandom.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/qrangemodel.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/qrangemodel_impl.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/qreadwritelock.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/qresource.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/qsavefile.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/qscopedvaluerollback.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/qsemaphore.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/qsequentialanimationgroup.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/qsequentialiterable.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/qsettings.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/qsharedmemory.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/qtipccommon.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/qsignalmapper.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/qsimd.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/qsocketnotifier.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/qsortfilterproxymodel.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/qstack.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/qstandardpaths.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/qstaticlatin1stringmatcher.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/qstorageinfo.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/qstringlistmodel.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/qstringliteral.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/qsystemsemaphore.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/qtcoreversion.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/qtemporarydir.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/qtemporaryfile.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/qtextboundaryfinder.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/qthreadstorage.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/qtimeline.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/qtmocconstants.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/qtranslator.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/qtransposeproxymodel.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/qtsymbolmacros.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/qurlquery.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/qvarianthash.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/QHash \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/QVariant \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/QString \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/qvariantlist.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/qvariantmap.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/QMap \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/qvector.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/qwaitcondition.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/QDeadlineTimer \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/qwineventnotifier.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/qxmlstream.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/qxpfunctional.h \
 		/home/varyk/Qt/6.10.2/gcc_64/include/QtSql/qtsqlglobal.h \
 		/home/varyk/Qt/6.10.2/gcc_64/include/QtSql/qtsql-config.h \
 		/home/varyk/Qt/6.10.2/gcc_64/include/QtSql/qtsqlexports.h \
-		/home/varyk/Qt/6.10.2/gcc_64/include/QtSql/QSqlDatabase \
 		/home/varyk/Qt/6.10.2/gcc_64/include/QtSql/qsqldatabase.h \
-		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/qmetaobject.h \
-		/home/varyk/Qt/6.10.2/gcc_64/include/QtSql/QSqlError \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtSql/qsqldriver.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtSql/qsqldriverplugin.h \
 		/home/varyk/Qt/6.10.2/gcc_64/include/QtSql/qsqlerror.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtSql/qsqlfield.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtSql/qsqlindex.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtSql/qsqlrecord.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtSql/qsqlquery.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtSql/qsqlquerymodel.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtSql/qsqlrelationaldelegate.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtWidgets/qstyleditemdelegate.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtWidgets/qlistview.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtWidgets/qcombobox.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtSql/qsqlrelationaltablemodel.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtSql/qsqltablemodel.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtSql/qsqlresult.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtSql/qtsqlversion.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtSql/QSqlDatabase \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtSql/QSqlError \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/QLatin1StringMatcher \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/QLatin1StringView \
 		ui_mainwindow.h \
-		/home/varyk/Qt/6.10.2/gcc_64/include/QtCore/QVariant \
 		/home/varyk/Qt/6.10.2/gcc_64/include/QtWidgets/QApplication \
 		/home/varyk/Qt/6.10.2/gcc_64/include/QtWidgets/qapplication.h \
 		/home/varyk/Qt/6.10.2/gcc_64/include/QtWidgets/QFrame \
@@ -3122,6 +3733,7 @@ mainwindow.o: ../../mainwindow.cpp ../../mainwindow.h \
 		../../additemsscreen.h \
 		/home/varyk/Qt/6.10.2/gcc_64/include/QtWidgets/QDialog \
 		/home/varyk/Qt/6.10.2/gcc_64/include/QtWidgets/qdialog.h \
+		/home/varyk/Qt/6.10.2/gcc_64/include/QtSql/QSql \
 		../../settingsscreen.h \
 		../../logindialogue.h \
 		../../itembookoutdialogue.h
@@ -3338,8 +3950,8 @@ settingsscreen.o: ../../settingsscreen.cpp ../../settingsscreen.h \
 moc_additemsscreen.o: moc_additemsscreen.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_additemsscreen.o moc_additemsscreen.cpp
 
-moc_itembookoutdialogue.o: moc_itembookoutdialogue.cpp 
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_itembookoutdialogue.o moc_itembookoutdialogue.cpp
+moc_clocklog.o: moc_clocklog.cpp 
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_clocklog.o moc_clocklog.cpp
 
 moc_logindialogue.o: moc_logindialogue.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_logindialogue.o moc_logindialogue.cpp

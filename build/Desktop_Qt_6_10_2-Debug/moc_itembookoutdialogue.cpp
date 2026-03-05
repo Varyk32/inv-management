@@ -38,10 +38,23 @@ template <> constexpr inline auto itemBookoutDialogue::qt_create_metaobjectdata<
 {
     namespace QMC = QtMocConstants;
     QtMocHelpers::StringRefStorage qt_stringData {
-        "itemBookoutDialogue"
+        "itemBookoutDialogue",
+        "on_pushButton_2_clicked",
+        "",
+        "on_pushButton_pressed",
+        "on_btnYes_clicked",
+        "on_btnNo_clicked"
     };
 
     QtMocHelpers::UintData qt_methods {
+        // Slot 'on_pushButton_2_clicked'
+        QtMocHelpers::SlotData<void()>(1, 2, QMC::AccessPrivate, QMetaType::Void),
+        // Slot 'on_pushButton_pressed'
+        QtMocHelpers::SlotData<void()>(3, 2, QMC::AccessPrivate, QMetaType::Void),
+        // Slot 'on_btnYes_clicked'
+        QtMocHelpers::SlotData<void()>(4, 2, QMC::AccessPrivate, QMetaType::Void),
+        // Slot 'on_btnNo_clicked'
+        QtMocHelpers::SlotData<void()>(5, 2, QMC::AccessPrivate, QMetaType::Void),
     };
     QtMocHelpers::UintData qt_properties {
     };
@@ -63,9 +76,13 @@ Q_CONSTINIT const QMetaObject itemBookoutDialogue::staticMetaObject = { {
 void itemBookoutDialogue::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void **_a)
 {
     auto *_t = static_cast<itemBookoutDialogue *>(_o);
-    (void)_t;
-    (void)_c;
-    (void)_id;
+    if (_c == QMetaObject::InvokeMetaMethod) {
+        switch (_id) {
+        case 2: _t->on_btnYes_clicked(); break;
+        case 3: _t->on_btnNo_clicked(); break;
+        default: ;
+        }
+    }
     (void)_a;
 }
 
@@ -85,6 +102,18 @@ void *itemBookoutDialogue::qt_metacast(const char *_clname)
 int itemBookoutDialogue::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
 {
     _id = QDialog::qt_metacall(_c, _id, _a);
+    if (_id < 0)
+        return _id;
+    if (_c == QMetaObject::InvokeMetaMethod) {
+        if (_id < 4)
+            qt_static_metacall(this, _c, _id, _a);
+        _id -= 4;
+    }
+    if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
+        if (_id < 4)
+            *reinterpret_cast<QMetaType *>(_a[0]) = QMetaType();
+        _id -= 4;
+    }
     return _id;
 }
 QT_WARNING_POP

@@ -25,8 +25,8 @@ public:
     QLabel *lblSelectedItem;
     QLineEdit *leSelectedItem;
     QLabel *lblSelectedItem_2;
-    QPushButton *pushButton;
-    QPushButton *pushButton_2;
+    QPushButton *btnYes;
+    QPushButton *btnNo;
 
     void setupUi(QDialog *itemBookoutDialogue)
     {
@@ -46,12 +46,12 @@ public:
         lblSelectedItem_2 = new QLabel(itemBookoutDialogue);
         lblSelectedItem_2->setObjectName("lblSelectedItem_2");
         lblSelectedItem_2->setGeometry(QRect(20, 140, 221, 16));
-        pushButton = new QPushButton(itemBookoutDialogue);
-        pushButton->setObjectName("pushButton");
-        pushButton->setGeometry(QRect(270, 230, 101, 61));
-        pushButton_2 = new QPushButton(itemBookoutDialogue);
-        pushButton_2->setObjectName("pushButton_2");
-        pushButton_2->setGeometry(QRect(149, 230, 101, 61));
+        btnYes = new QPushButton(itemBookoutDialogue);
+        btnYes->setObjectName("btnYes");
+        btnYes->setGeometry(QRect(270, 230, 101, 61));
+        btnNo = new QPushButton(itemBookoutDialogue);
+        btnNo->setObjectName("btnNo");
+        btnNo->setGeometry(QRect(149, 230, 101, 61));
 
         retranslateUi(itemBookoutDialogue);
 
@@ -64,8 +64,8 @@ public:
         lblbookoutconfirm->setText(QCoreApplication::translate("itemBookoutDialogue", "Book Out Confirmation", nullptr));
         lblSelectedItem->setText(QCoreApplication::translate("itemBookoutDialogue", "Current item selected for booking out:", nullptr));
         lblSelectedItem_2->setText(QCoreApplication::translate("itemBookoutDialogue", "Are you sure you want to book out this item?", nullptr));
-        pushButton->setText(QCoreApplication::translate("itemBookoutDialogue", "Yes", nullptr));
-        pushButton_2->setText(QCoreApplication::translate("itemBookoutDialogue", "No", nullptr));
+        btnYes->setText(QCoreApplication::translate("itemBookoutDialogue", "Yes", nullptr));
+        btnNo->setText(QCoreApplication::translate("itemBookoutDialogue", "No", nullptr));
     } // retranslateUi
 
 };

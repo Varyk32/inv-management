@@ -65,7 +65,7 @@
     <string>Are you sure you want to book out this item?</string>
    </property>
   </widget>
-  <widget class="QPushButton" name="pushButton">
+  <widget class="QPushButton" name="btnYes">
    <property name="geometry">
     <rect>
      <x>270</x>
@@ -78,7 +78,7 @@
     <string>Yes</string>
    </property>
   </widget>
-  <widget class="QPushButton" name="pushButton_2">
+  <widget class="QPushButton" name="btnNo">
    <property name="geometry">
     <rect>
      <x>149</x>

@@ -12,3 +12,17 @@ itemBookoutDialogue::~itemBookoutDialogue()
 {
     delete ui;
 }
+
+
+void itemBookoutDialogue::on_btnYes_clicked()
+{
+    Ui::clockLog clocklog;
+    this->close();
+}
+
+
+void itemBookoutDialogue::on_btnNo_clicked()
+{
+    this->close();
+}
+

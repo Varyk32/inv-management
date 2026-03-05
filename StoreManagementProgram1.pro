@@ -10,7 +10,7 @@ CONFIG += c++17
 
 SOURCES += \
     additemsscreen.cpp \
-    itembookoutdialogue.cpp \
+    clocklog.cpp \
     logindialogue.cpp \
     main.cpp \
     mainwindow.cpp \
@@ -18,14 +18,14 @@ SOURCES += \
 
 HEADERS += \
     additemsscreen.h \
-    itembookoutdialogue.h \
+    clocklog.h \
     logindialogue.h \
     mainwindow.h \
     settingsscreen.h
 
 FORMS += \
     additemsscreen.ui \
-    itembookoutdialogue.ui \
+    clocklog.ui \
     logindialogue.ui \
     mainwindow.ui \
     settingsscreen.ui

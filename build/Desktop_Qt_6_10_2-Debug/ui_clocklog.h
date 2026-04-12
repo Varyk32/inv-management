@@ -15,7 +15,6 @@
 #include <QtWidgets/QLabel>
 #include <QtWidgets/QLineEdit>
 #include <QtWidgets/QPushButton>
-#include <QtWidgets/QTextBrowser>
 
 QT_BEGIN_NAMESPACE
 
@@ -25,11 +24,11 @@ public:
     QPushButton *btnBookOut;
     QLabel *lblBookoutItem;
     QPushButton *btnCancel;
-    QTextBrowser *tbItemName;
     QLineEdit *leArtisanName;
     QLabel *lblArtisanName;
     QLabel *lblArtisanName_2;
     QLineEdit *leClockNumber;
+    QLabel *lblItemName;
 
     void setupUi(QDialog *clockLog)
     {
@@ -45,9 +44,6 @@ public:
         btnCancel = new QPushButton(clockLog);
         btnCancel->setObjectName("btnCancel");
         btnCancel->setGeometry(QRect(20, 180, 361, 31));
-        tbItemName = new QTextBrowser(clockLog);
-        tbItemName->setObjectName("tbItemName");
-        tbItemName->setGeometry(QRect(110, 10, 256, 16));
         leArtisanName = new QLineEdit(clockLog);
         leArtisanName->setObjectName("leArtisanName");
         leArtisanName->setGeometry(QRect(120, 60, 241, 22));
@@ -60,6 +56,9 @@ public:
         leClockNumber = new QLineEdit(clockLog);
         leClockNumber->setObjectName("leClockNumber");
         leClockNumber->setGeometry(QRect(120, 100, 241, 22));
+        lblItemName = new QLabel(clockLog);
+        lblItemName->setObjectName("lblItemName");
+        lblItemName->setGeometry(QRect(120, 10, 251, 16));
 
         retranslateUi(clockLog);
 
@@ -74,6 +73,7 @@ public:
         btnCancel->setText(QCoreApplication::translate("clockLog", "Cancel", nullptr));
         lblArtisanName->setText(QCoreApplication::translate("clockLog", "Artisan Name:", nullptr));
         lblArtisanName_2->setText(QCoreApplication::translate("clockLog", "Clock Number:", nullptr));
+        lblItemName->setText(QCoreApplication::translate("clockLog", "TextLabel", nullptr));
     } // retranslateUi
 
 };

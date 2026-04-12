@@ -4,8 +4,12 @@
 #include "settingsscreen.h"
 #include "logindialogue.h"
 #include "clocklog.h"
+#include "QTableWidgetItem"
+#include "QTableWidget"
 
 int preparedTotalAmountOfItems = 3000;
+// char itemSelection;
+
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -61,16 +65,6 @@ void MainWindow::on_btnLogin_clicked()                  //Code to open the dialo
 
 
 
-void MainWindow::on_twInventoryList_itemPressed(QTableWidgetItem *item)
-{
-
-    ui->twInventoryList->setEditTriggers(QAbstractItemView::NoEditTriggers);
-    clockLog clocklog;
-    clocklog.setModal(true);
-    clocklog.exec();
-}
-
-
 void MainWindow::on_pushButton_clicked()
 {
     DB_connection.open();
@@ -103,10 +97,15 @@ void MainWindow::on_pushButton_clicked()
         }
         QString SearchText = ui->leSearchBar->text();           //sets the searchbar text as a normal string for an easier time for me
 
-        QList<QTableWidgetItem*> foundItems = ui->twInventoryList->findItems(SearchText, Qt::MatchContains & Qt::MatchCaseSensitive);
+        QList<QTableWidgetItem*> foundItems = ui->twInventoryList->findItems(SearchText,  Qt::MatchFlag(Qt::CaseInsensitive & (Qt::MatchContains | Qt::MatchStartsWith | Qt::MatchEndsWith)));
+
 
          for (QTableWidgetItem *item : foundItems) {
             //ableWidget::scrollToItem(item);
+        /*     if (item->text().contains(SearchText, Qt::CaseInsensitive))
+            {
+                foundItems.append(item);
+            }*/
             item->setBackground(Qt::darkBlue);
             item->setForeground(Qt::white);
         }
@@ -123,4 +122,17 @@ void MainWindow::on_pushButton_clicked()
     QSqlDatabase::database().commit();
     DB_connection.close();
 }
+
+
+void MainWindow::on_twInventoryList_cellPressed(int row, int column)
+{
+    QTableWidgetItem *selectedItem = ui->twInventoryList->item(row, 4);
+    ui->twInventoryList->setEditTriggers(QAbstractItemView::NoEditTriggers);
+    ui->twInventoryList->setCurrentItem(selectedItem);
+    itemName = selectedItem->text();
+    clockLog clocklog;
+    clocklog.setModal(true);
+    clocklog.exec();
+}
+//public string itemSelection = *selectedItem;
 

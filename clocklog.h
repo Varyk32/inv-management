@@ -21,6 +21,8 @@ private slots:
 
     void on_btnBookOut_clicked();
 
+    void on_tbItemName_historyChanged();
+
 private:
     Ui::clockLog *ui;
 };

@@ -4,12 +4,20 @@
 #include <qdir.h>
 #include <QFile>
 #include <QTextStream>
+#include <mainwindow.h>
+#include <ui_mainwindow.h>
+#include <qstring.h>
+#include <mainwindow.h>
+//#include "mainwindow.cpp"
 
 clockLog::clockLog(QWidget *parent)
     : QDialog(parent)
     , ui(new Ui::clockLog)
 {
     ui->setupUi(this);
+    //ui->lblItemName->setText(itemSelection.text());
+    //QString *itemName = itemSelection;
+    ui->lblItemName->setText(itemName);
 }
 
 clockLog::~clockLog()
@@ -22,7 +30,6 @@ void clockLog::on_btnCancel_clicked()
     this->close();
 }
 
-
 void clockLog::on_btnBookOut_clicked()
 {
     QString artisanName = ui->leArtisanName->displayText();                         //gets the artisans name and clock number ready for writing to the file
@@ -34,7 +41,9 @@ void clockLog::on_btnBookOut_clicked()
         QFile File(filename+".txt");
         if (File.open(QIODevice::ReadWrite))
         {
-        QTextStream out(&File);                     //writes the artisans name and clock number to the file
+        QTextStream out(&File);            //writes the artisans name and clock number to the file`    TODO:: Make the system also print the item's part number
+        out << itemName;
+        out << '\n';
         out << artisanName;
         out << '\n';
         out << clockNumber;
@@ -54,5 +63,11 @@ void clockLog::on_btnBookOut_clicked()
 
 
     this->close();
+}
+
+
+void clockLog::on_tbItemName_historyChanged()
+{
+
 }
 
